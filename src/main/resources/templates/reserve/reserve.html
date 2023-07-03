@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>Reserve</title>
+<link th:href="@{/css/reserve.css}" rel="styleSheet">
+</head>
+<body>
+	<h3>KITOレンタカー　予約画面</h3>
+	<div sec:authorize="${hasRole('ADMIN')}"><a th:href="@{'/admin'}" align="right">管理画面</a></div>
+	<div style="text-align: center;"><a th:href="@{'/reservation'}" align="right">予約確認</a></div>
+	<form th:action="@{'/logout'}" method="post">
+		<button>ログアウト</button>
+	</form>
+	
+</body>
+</html>
