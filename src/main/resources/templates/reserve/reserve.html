@@ -9,10 +9,25 @@
 <body>
 	<h3>KITOレンタカー　予約画面</h3>
 	<div sec:authorize="${hasRole('ADMIN')}"><a th:href="@{'/admin'}" align="right">管理画面</a></div>
-	<div style="text-align: center;"><a th:href="@{'/reservation'}" align="right">予約確認</a></div>
+	<a th:href="@{'/reservation'}" align="right">予約確認</a>
 	<form th:action="@{'/logout'}" method="post">
 		<button>ログアウト</button>
 	</form>
-	
+	<form th:action="@{'/reservein'}" method="post">
+		<label for="start">利用開始日：</label>
+		<input type="date" id="start" class="reserve" name="start" value="" min="2023-07-04" required/>
+		<label for="end">利用終了日：</label>
+		<input type="date" id="end" class="reserve" name="end" value="" max="2024-07-22" required/><br>
+		<label for="car">車の選択：</label>
+		<select name="salesid" id="car" class="reserve" name="car" required>
+            	 <option value="" selected disabled></option>
+            	 <option
+               	 th:each="list : ${carList}"
+               	 th:value="${list.carid}"
+               	 th:text="|${list.cartype} ${list.carname} ${list.passengers}人乗り ${list.carprice}円|"
+            	 </option>
+        </select><br>
+         <input type="submit" name="reserve" value="決定" />
+	</form>
 </body>
 </html>
