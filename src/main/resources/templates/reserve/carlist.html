@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>carList</title>
+</head>
+<body>
+	<h3>車種一覧</h3>
+	<a th:href="@{/admin}">管理者メニューに戻る</a>
+	<table border="1">
+		<tr>
+			<th>車両ID</th>
+			<th>車種</th>
+			<th>車名</th>
+			<th>メーカー</th>
+			<th>カラー</th>
+			<th>乗員</th>
+			<th>料金</th>
+			<th>無効</th>
+			<th>編集</th>
+		</tr>
+		<tr th:each="car : ${carList}">
+			<td th:text="${car.carid}"></td>
+			<td th:text="${car.cartype}"></td>
+			<td th:text="${car.maker}"></td>
+			<td th:text="${car.color}"></td>
+			<td th:text="${car.carname}"></td>
+			<td th:text="${car.passenger}"></td>
+			<td th:text="${car.carprice}" align="right"></td>
+			<td th:text="${car.enableflag} ? '無効' : '有効'"></td>
+			<td>
+				<form th:action="@{/admin/caredit}" method="get">
+					<input type="hidden" name="carid" th:value="${car.carid}" />
+					<input type="submit" name="edit" value="編集" />
+				</form>
+	
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

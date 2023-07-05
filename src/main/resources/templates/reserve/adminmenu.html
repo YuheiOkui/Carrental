@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin Menu</title>
+</head>
+<body>
+	<h3>管理者メニュー</h3>
+	<ul>
+<!--		<li><a th:href="@{'/admin/newuser'}">新規ユーザ登録</a></li>  -->
+		<li><a th:href="@{'/admin/userlist'}">User一覧</a></li>
+		<li><a th:href="@{'/admin/carlist'}">車種一覧</a></li>
+		<li><a th:href="@{'/admin/lendinglist'}">貸出一覧</a></li>
+		<li><a th:href="@{'/admin/saleslist'}">売上一覧</a></li>
+		<li><a th:href="@{'/admin/inventorylist'}">在庫管理</a></li>
+		<li><a th:href="@{'/goods'}">戻る</a></li>
+	</ul>
+</body>
+</html>

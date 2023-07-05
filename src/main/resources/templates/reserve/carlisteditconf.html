@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>CarList Editconf</title>
+</head>
+<body>
+	<h3>車種情報編集</h3>
+	<a th:href="@{/admin/carlist}">車種一覧へ戻る</a>
+		<table>
+			<tr>
+				<td>車両ID：</td>
+				<td><span th:text="${carEditForm.carid}"></span></td>				
+			</tr>
+			<tr>
+				<td>車名：</td>
+				<td><span th:text="${carEditForm.carname}"></span></td>
+			</tr>
+			<tr>
+				<td>車種：</td>
+				<td><span th:text="${carEditForm.cartype}"></span></td>
+			</tr>
+			<tr>
+				<td>メーカー：</td>
+				<td><span th:text="${carEditForm.maker}"></span></td>
+			</tr>
+			<tr>
+				<td>カラー：</td>
+				<td><span th:text="${carEditForm.color}"></span></td>
+			</tr>
+			<tr>
+				<td>料金：</td>
+				<td><span th:text="${carEditForm.carprice}"></span></td>
+			</tr>
+			<tr>
+				<td>無効フラグ：</td>
+				<td><sapn th:text="${carEditForm.enableflag}"></sapn></td>
+		</tr>
+	</table>
+</body>
+</html>
