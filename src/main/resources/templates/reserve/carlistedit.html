@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>CarList Edit</title>
+</head>
+<body>
+	<h3>車種情報編集</h3>
+	<a th:href="@{/admin/carlist}">車種一覧へ戻る</a>
+	<form th:action="@{/admin/careditconf}" method="post" th:object="${carEditForm}">
+		<table>
+			<tr>
+				<td>車両ID：</td>
+				<td>
+					<input type="text" name="carid" th:value="${carEditForm.carid}" th:readonly="true" />
+					<span th:errors="*{carid}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>車名：</td>
+				<td>
+					<input type="text" name="carname" th:value="${carEditForm.carname}" />
+					<span th:errors="*{carname}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>車種：</td>
+				<td>
+					<input type="text" name="cartype" th:value="${carEditForm.cartype}" />
+					<span th:errors="*{cartype}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>メーカー：</td>
+				<td>
+					<input type="text" name="maker" th:value="${carEditForm.maker}" />
+					<span th:errors="*{maker}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>カラー：</td>
+				<td>
+					<input type="text" name="color" th:value="${carEditForm.color}" />
+					<span th:errors="*{color}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>料金：</td>
+				<td>
+					<input type="text" name="carprice" th:value="${carEditForm.carprice}" />
+					<span th:errors="*{carprice}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>無効フラグ：</td>
+				<td>
+					<input type="checkbox" name="enableflag" th:field="${carEditForm.enableflag}" />
+				</td>
+			</tr>
+		</table>
+		<button type="submit">登録</button>
+	</form>
+</body>
+</html>
