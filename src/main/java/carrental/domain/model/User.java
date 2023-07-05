@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 //Userのエンティティ
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,9 +19,8 @@ import lombok.NoArgsConstructor;
 @Table(name="usr")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userid;
-	private String name;
+	private String fullnameId;
+	private String username;
 	private String birth;
 	private String sex;
 	private String pass;
