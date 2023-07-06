@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import carrental.domain.model.Car;
 import carrental.domain.service.car.CarService;
 /**
- * admincontroller セールスは未作成の為コメントアウトしています。
+ * admincontroller セールスリストは未作成の為コメントアウトしています。
  * @author 飯田
  */
 @Controller
