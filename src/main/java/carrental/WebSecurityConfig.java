@@ -32,7 +32,7 @@ public class WebSecurityConfig {
 						//↑Springのシステムを使わず、持っていくだけのフォーム
 						//staticのやつは全部許可しますよ
 						.requestMatchers("/").permitAll()//ルートへのアクセスは誰でもOK
-						.requestMatchers("/reserve").permitAll()//商品一覧も全員アクセス許可
+						.requestMatchers("/reserve").permitAll()//レンタカ一覧も全員アクセス許可
 						.requestMatchers("/signup").permitAll()//新規登録も全員アクセス許可
 						.requestMatchers("/admin/**").hasRole("ADMIN")//管理者権限：**なので、ADMINの場合は全てにアクセス許可
 						.anyRequest().authenticated());//その他のリクエスト：権限をチェック,拒否しますよという設定
