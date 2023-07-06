@@ -3,7 +3,13 @@ package carrental.domain.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-//ユーザー権限の判定
+/**
+ * 
+ * @author 黒川
+ *ユーザー権限の判定
+ */
+
+
 @Getter
 @AllArgsConstructor
 public enum RoleName implements UserValues{

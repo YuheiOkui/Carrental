@@ -22,9 +22,7 @@ public class User {
 	@Id
 	private String fullnameId;
 	private String username;
-	private Date year;
-	private Date month;
-	private Date day;
+	private Date birth;	
 	private String sex;
 	private String pass;
 	//権限の判定
