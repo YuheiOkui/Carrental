@@ -1,10 +1,11 @@
 package carrental.domain.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,9 @@ public class User {
 	@Id
 	private String fullnameId;
 	private String username;
-	private String birth;
+	private Date year;
+	private Date month;
+	private Date day;
 	private String sex;
 	private String pass;
 	//権限の判定
