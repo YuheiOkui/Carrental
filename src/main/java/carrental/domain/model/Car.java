@@ -21,6 +21,5 @@ public class Car {
 	private String color;
 	private Integer passengers;
 	private Integer carprice;
-	private boolean enableflag = false; 
-}
- 
+	private boolean enableflag = false;
+} 

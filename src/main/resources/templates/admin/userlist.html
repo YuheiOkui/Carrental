@@ -6,7 +6,7 @@
 </head>
 <body>
 <h3>ユーザー一覧</h3>
-<!--href追記-->
+
 <a>管理者メニューに戻る</a>
 <table border="1">
 	<tr>
@@ -25,7 +25,7 @@
 		<td text="${user.sex}"></td>
 		<td text="${user.pass}"></td>
 		<td text="${user.authority}"></td>
-		<!--アクション先追記-->
+	
 		<td><form th:action="" method="get">
 				<input type="hidden" name="userid" th:value="${user.userid}"/>
 				<input type="submit" name="edit" value="編集"/>
