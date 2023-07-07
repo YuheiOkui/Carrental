@@ -2,30 +2,20 @@ package carrental.app.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 /**
- * ログインフォーム作成
+ * ログインフォーム画面
+ * 新規登録画面
  * 
  * @author 田中
  *
  */
-
+//ログイン
 @Controller
 public class LoginController {
-	@GetMapping("login")
+	@GetMapping("loginForm")
 	public String showLoginForm() {
-		return "loginForm";
+		return "login/loginForm";
 	}
 
-	@GetMapping("loginError")
-	public String showLoginErrorForm() {
-		return "loginError";
-	}
-	
-	@PostMapping("loginForm")
-	public String successLogin(String name,String pass) {
-		return "login";//未完成　修正必要
-	}
-	
 }
