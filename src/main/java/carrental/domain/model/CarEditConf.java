@@ -22,4 +22,5 @@ public class CarEditConf {
 	private int passengers;
 	private int carprice;
 	private boolean enableflag;
+	
 }

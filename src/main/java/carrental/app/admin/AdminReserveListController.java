@@ -16,10 +16,11 @@ public class AdminReserveListController {
 	@Autowired
 	ReserveService reserveService;
 	
- @GetMapping("admin/reservelist")
+ @GetMapping("/admin/reservelist")
 String reservelist(Model model) {
 List<Reserve> reservelist =reserveService.findAllReserve();
 model.addAttribute("reservelist", reservelist);
 return "admin/reservelist";
-}
+
+ 	}
 }
