@@ -19,7 +19,7 @@ public class CarEditconf {
 	private String cartype;
 	private String color;
 	private String maker;
-	private int passenger;
+	private int passengers;
 	private int carprice;
 	private boolean enableflag;
 }
