@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+</head>
+
+<body>
+	<h2>レンタカー　ログインフォーム</h2>
+	<p th:if="${param.error}">
+		ログインエラーです
+	</p>
+	<form th:action="@{/loginForm}" method="post">
+		<table>
+			<tr>
+				<td><label for="fullname">フルネーム:</label></td>
+				<td> <input type="text" id="fullname" name="fullname" required></td>
+			</tr>
+			<tr>
+				<td><label for="password">パスワード:</label></td>
+				<td><input type="password" id="password" name="password" required></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><button type="submit"><b>ログイン</b></button></td>
+			</tr>
+		</table>
+	</form>
+	<a href="@{/signup}"><b>ユーザ新規登録</b></a>
+</body>
+
+</html>

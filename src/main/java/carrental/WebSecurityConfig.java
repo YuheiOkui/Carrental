@@ -19,7 +19,7 @@ public class WebSecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.formLogin(login -> login //ログイン処理を使いますよ
-				.loginProcessingUrl("/login")
+				.loginProcessingUrl("/loginForm")
 				.loginPage("/loginForm") //ログインのページに行くにはログインフォームから
 				.defaultSuccessUrl("/reserve", true)//ログインしたら商品のページが出ますよ
 				.failureUrl("/loginError")//ログイン失敗のとき、ログインエラーフォームに飛ぶ
@@ -39,3 +39,31 @@ public class WebSecurityConfig {
 		return http.build();//httpの構成ファイルを作成してくれる
 	}
 }
+
+////見本
+//@Bean
+//public PasswordEncoder passwordEncorder() {
+//	return new BCryptPasswordEncoder();
+//}
+//
+//@Bean
+//public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+//	http.formLogin(login -> login
+//			.loginProcessingUrl("/loginForm")
+//			.loginPage("/loginForm")
+//			.defaultSuccessUrl("/reserve" ,true)
+//			.failureUrl("/loginForm?error")
+//			.permitAll()
+//	).logout(logout -> logout
+//			.logoutSuccessUrl("/loginForm")
+//	).authorizeHttpRequests(authz -> authz
+//			.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+//			.requestMatchers("/").permitAll()
+//			.requestMatchers("/reserve").permitAll()
+//			.requestMatchers("/signup").permitAll()
+//			.requestMatchers("/admin/**").hasRole("ADMIN")
+//			.anyRequest().authenticated()
+//			);
+//	return http.build();
+//}
+

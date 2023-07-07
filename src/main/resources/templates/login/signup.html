@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>新規登録</title>
+</head>
+
+<body>
+	<h2>新規ユーザー登録</h2>
+	<form th:action="@{/signup}" method="post">
+		<div>
+			<label for="username">ユーザー名:</label>
+			<input type="text" id="username" name="username" required>
+		</div>
+		<div>
+			<label for="password">パスワード:</label>
+			<input type="password" id="password" name="password" required>
+		</div>
+		<div>
+			<label for="fullname">フルネーム:</label>
+			<input type="text" id="fullname" name="fullname" required>
+		</div>
+		<!--カレンダーで表示させる-->
+		<div>
+			<label for="birth">生年月日:</label>
+			<input type="date" id="birth" name="birth" required>
+		</div>
+		<label>性　別　：</label>
+		<input type="radio" name="selectRadio" value="男">男
+		<input type="radio" name="selectRadio" value="女">女
+		<input type="radio" name="selectRadio" value="LGBTQ">LGBTQ
+		<br>
+		<button type="submit">登録</button>
+		</form>
+</body>
+
