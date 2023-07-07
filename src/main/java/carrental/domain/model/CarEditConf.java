@@ -1,4 +1,4 @@
-package carrental.app.admin;
+package carrental.domain.model;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CarEditconf {
+public class CarEditConf {
 	private Integer carid;
 	@Size(min=1, max=16)
 	private String carname;
