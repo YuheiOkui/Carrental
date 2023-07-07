@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>ReserveFail</title>
+<link th:href="@{/css/reservefail.css}" rel="styleSheet">
+</head>
+<body>
+	<font size="4" color="red">予約ができませんでした。日付または車を変更して再度予約してください。</font>
+	<form th:action="@{'/reserve'}" method="get">
+	 	<input type="submit" name="reservefail" value="予約画面に戻る" />
+	</form>
+</body>
+</html>
