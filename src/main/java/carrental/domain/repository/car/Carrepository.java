@@ -6,11 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import carrental.domain.model.Car;
 /**
- * 予約機能レポジトリー
+ * 車両レポジトリー
  * @author 奥井
  */
 public interface Carrepository extends JpaRepository<Car, Integer> {
-	List<Car> findAllByOrderByCarid();
-
+	List<Car> findAllByOrderByCarid(); 
 }
  
