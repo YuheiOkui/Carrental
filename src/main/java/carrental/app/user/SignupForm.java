@@ -1,6 +1,6 @@
 package carrental.app.user;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -24,7 +24,7 @@ public class SignupForm {
 	private String password;
 	@Size(min=1,max=5)
 	private String sex;
-	private Date birth;	
+	private LocalDate birth;	
 	
 	
 }

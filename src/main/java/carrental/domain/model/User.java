@@ -2,7 +2,7 @@ package carrental.domain.model;
 
 
 
-import java.sql.Timestamp;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,7 +31,7 @@ public class User {
 	@Id
 	private String fullnameId;
 	private String username;
-	private Timestamp birth;	//元々はDateだった
+	private LocalDate birth;	
 	private String sex;
 	private String password;
 	//権限の判定
