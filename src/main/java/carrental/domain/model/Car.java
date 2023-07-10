@@ -21,10 +21,5 @@ public class Car {
 	private String color;
 	private Integer passengers;
 	private Integer carprice;
-//<<<<<<< HEAD
-//	private boolean enableflag = false; 
-//=======
 	private boolean enableflag = false;
-//>>>>>>> branch 'master' of https://github.com/muragaki/GroupC.git
-}
- 
+} 
