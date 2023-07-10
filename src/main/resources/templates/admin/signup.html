@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 管理者用　ユーザー登録画面作成　Tanaka-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New User Registed</title>
+</head>
+<body>
+	<h3>ユーザー登録確認</h3>
+		<table>
+			<tr>
+				<td>フルネーム：</td>
+				<td><span th:text="${userForm.fullnameId}" /></td>
+			</tr>
+			<tr>
+				<td>パスワード：</td>
+				<td>********</td>
+			</tr>
+			<tr>
+				<td>ユーザー名：</td>
+				<td><span th:text="${userForm.username}" /></td>
+			</tr>
+			<tr>
+				<td>生年月日：</td>
+				<td><span th:text="${userForm.birth}" /></td>
+			</tr>
+			<tr>
+				<td>性　別　：</td>
+				<td><span th:text="${userForm.sex}" /></td>
+			</tr>
+			<tr>
+				<td>ユーザ権限：</td>
+				<td><span th:text="${userForm.rolename}" /></td>
+			</tr>
+		</table>
+	<a th:href="@{/admin}">管理者メニューへ戻る</a>
+</body>
+</html>

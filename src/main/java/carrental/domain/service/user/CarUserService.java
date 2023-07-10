@@ -4,7 +4,6 @@ package carrental.domain.service.user;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,28 +11,43 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import carrental.domain.model.User;
-import carrental.domain.repository.user.Userrepository;
+import carrental.domain.repository.user.UserRepository;
 
-	//未完成
+/**
+ * ユーザー情報サービス
+ * 
+ * （ｱﾌﾟﾘｹｰｼｮﾝにおけるﾕｰｻﾞｰの詳細情報の取得や登録を
+ * 行うためのｻｰﾋﾞｽｸﾗｽを作成）
+ * 
+ * @author Tanaka
+ *
+ */
+
 @Service
 public class CarUserService implements UserDetailsService{
 
 	@Autowired
-	Userrepository userRepository;
+	UserRepository userRepository;
 	
 	@Autowired
-	PasswordEncoder encorder;
+	PasswordEncoder encorder;//暗号化
 
+	//ﾌﾙﾈｰﾑIDでﾕｰｻﾞｰ情報を取得する
+	//DBに登録されていなければ"ﾌﾙﾈｰﾑ is not found"
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO 自動生成されたメソッド・スタブ
-		User user = userRepository.findById(username).orElseThrow(() -> new UsernameNotFoundException(username + "is not found"));
+	public UserDetails loadUserByUsername(String fullnameId) throws UsernameNotFoundException {
+		User user = userRepository.findById(fullnameId).orElseThrow(() 
+				-> new UsernameNotFoundException(fullnameId + "is not found"));
 		return new CarUserDetail(user);
 	}
-	public void userregist(User user) {
-		user.setPass(encorder.encode(user.getPass()));
+	public void userupdateregist(User user) {
 		userRepository.save(user);
 	}
+	public void userregist(User user) {
+		user.setPassword(encorder.encode(user.getPassword()));
+		userRepository.save(user);
+	}
+	
 	public List<User> getUserAll(){
 		return userRepository.findAll();
 	}

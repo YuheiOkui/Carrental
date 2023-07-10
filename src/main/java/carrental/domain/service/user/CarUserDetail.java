@@ -22,45 +22,37 @@ public class CarUserDetail implements UserDetails{
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO 自動生成されたメソッド・スタブ
-		
-		return AuthorityUtils.createAuthorityList("ROLE_" + this.user.getAuthority().name());
+		return AuthorityUtils.createAuthorityList("ROLE_" + this.user.getRoleName().name());
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO 自動生成されたメソッド・スタブ
-		return this.user.getPass();
+		return this.user.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO 自動生成されたメソッド・スタブ
 		return this.user.getFullnameId();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO 自動生成されたメソッド・スタブ
-		return false;
+		return true;
 	}
 
 }

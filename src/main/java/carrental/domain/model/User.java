@@ -1,17 +1,26 @@
 package carrental.domain.model;
 
-import java.util.Date;
+
+
+import java.sql.Timestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-//Userのエンティティ
+
+/**
+ * 
+ * ユーザーのエンティティ作成
+ * 項目５つ
+ * 
+ * @author Tanaka
+ * 
+ */
 
 @Data
 @NoArgsConstructor
@@ -22,10 +31,10 @@ public class User {
 	@Id
 	private String fullnameId;
 	private String username;
-	private Date birth;	
+	private Timestamp birth;	//元々はDateだった
 	private String sex;
-	private String pass;
+	private String password;
 	//権限の判定
 	@Enumerated(EnumType.STRING)
-	private RoleName authority;
+	private RoleName roleName;
 }
