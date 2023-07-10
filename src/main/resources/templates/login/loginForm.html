@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--ログイン画面作成　Tanaka-->
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -11,11 +12,11 @@
 	<p th:if="${param.error}">
 		ログインエラーです
 	</p>
-	<form th:action="@{/loginForm}" method="post">
+	<form th:action="@{/login}" method="post">
 		<table>
 			<tr>
-				<td><label for="fullname">フルネーム:</label></td>
-				<td> <input type="text" id="fullname" name="fullname" required></td>
+				<td><label for="fullnameId">フルネーム:</label></td>
+				<td> <input type="text" id="fullnameId" name="fullnameId" required></td>
 			</tr>
 			<tr>
 				<td><label for="password">パスワード:</label></td>
@@ -27,7 +28,7 @@
 			</tr>
 		</table>
 	</form>
-	<a href="@{/signup}"><b>ユーザ新規登録</b></a>
+	<a th:href="@{/login/signup}"><b>ユーザ新規登録</b></a>
 </body>
 
 </html>

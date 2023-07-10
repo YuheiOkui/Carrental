@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * ログインフォーム画面
- * 新規登録画面
+ * 
  * 
  * @author 田中
  *
