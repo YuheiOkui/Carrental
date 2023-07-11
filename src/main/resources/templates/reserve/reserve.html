@@ -6,7 +6,7 @@
 <title>Reserve</title>
 <link th:href="@{/css/reserve.css}" rel="styleSheet">
 </head>
-<body th:with="today=${#date.createNow()}">
+<body th:with="today=${#temporals.createNow()}">
 	<h3>KITOレンタカー　予約画面</h3>
 	<div sec:authorize="${hasRole('ADMIN')}"><a th:href="@{'/admin'}" align="right">管理画面</a></div>
 	<a th:href="@{'/reservation'}" align="right">予約確認</a>
@@ -15,7 +15,7 @@
 	</form>
 	<form th:action="@{'/reservein'}" method="post">
 		<label for="start">利用開始日：</label>
-		<input type="date" id="start" class="reserve" name="startdate" value="" min="${#dates.format(today, 'yyyy-MM-dd')}" required/>
+		<input type="date" id="start" class="reserve" name="startdate" value="" min="${#temporals.format(today, 'yyyy-MM-dd')}" required/>
 		<label for="end">利用終了日：</label>
 		<input type="date" id="end" class="reserve" name="enddate" value="" max="2024-07-22" required/><br>
 		<label for="car">車の選択：</label>

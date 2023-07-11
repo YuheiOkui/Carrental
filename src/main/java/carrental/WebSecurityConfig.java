@@ -9,6 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 
+
+
 /**
  * 
  * CSRFに対処したコードを書きたいが未実装　
@@ -46,6 +48,23 @@ public class WebSecurityConfig {
 		
 		 return http.build();
 	}
+	
+
+//
+//	@Bean
+//	public JdbcUserDetailsManager userDetailesManager() {
+//		String username = "fullnameId";
+//		String password = "password";
+//		
+//		UserDetails user = User.withUsername(username)
+//				.password(
+//				PasswordEncoderFactories
+//					.createDelegatingPasswordEncoder()
+//					.encode(password))
+//				.roles("USER")
+//				.build();
+//		return new JdbcUserDetailsManager((DataSource) user);
+//	}
 }
 
 

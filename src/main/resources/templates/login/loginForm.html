@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<h2>レンタカー　ログインフォーム</h2>
+	<h2>KITOレンタカー　ログインフォーム</h2>
 	<p th:if="${param.error}">
 		ログインエラーです
 	</p>
@@ -16,7 +16,7 @@
 		<table>
 			<tr>
 				<td><label for="fullnameId">フルネーム:</label></td>
-				<td> <input type="text" id="fullnameId" name="fullnameId" required></td>
+				<td> <input type="text" id="fullnameId" name="username" required></td>
 			</tr>
 			<tr>
 				<td><label for="password">パスワード:</label></td>
@@ -28,7 +28,7 @@
 			</tr>
 		</table>
 	</form>
-	<a th:href="@{/login/signup}"><b>ユーザ新規登録</b></a>
+	<a th:href="@{/signup}"><b>ユーザ新規登録</b></a>
 </body>
 
 </html>
