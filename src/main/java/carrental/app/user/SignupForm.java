@@ -16,13 +16,13 @@ import lombok.Data;
 
 @Data
 public class SignupForm {
-	@Size(min=8,max=20)
+	@Size(min=2,max=20)
 	private String fullnameId;
 	@Size(min=1,max=20)
 	private String username;
 	@Size(min=8,max=20)
 	private String password;
-	@Size(min=1,max=5)
+	@Size(min=1,max=6)
 	private String sex;
 	private LocalDate birth;	
 	

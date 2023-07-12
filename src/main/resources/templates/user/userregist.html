@@ -2,19 +2,23 @@
 <!-- 新規登録画面作成　Tanaka-->
 
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>User Regist</title>
+	<meta charset="UTF-8">
+	<title>User Regist</title>
 </head>
+
 <body>
 	<h3>KITO 新規ユーザ登録</h3>
 	<form th:action="@{/signup}" method="post" th:object="${signupForm}">
 		<div th:if="${signupError}">
 			<div th:text="${signupError}"></div>
 		</div>
+
 		<label for="fullnameId">フルネーム：</label>
 		<input type="text" id="fullnameId" name="fullnameId" th:value="${signupForm.fullnameId}">
-		<span th:errors="${signupForm.username}"></span><br>
+		<span th:errors="${signupForm.fullnameId}"></span><br>
+
 		<label for="username">ユーザ名　　：</label>
 		<input type="text" id="username" name="username" th:value="${signupForm.username}">
 		<span th:errors="${signupForm.username}"></span><br>
@@ -22,8 +26,17 @@
 		<input type="password" id="password" name="password" th:value="${signupForm.password}">
 		<span th:errors="${signupForm.password}"></span><br>
 		<label for="sex">性　　別　　：</label>
-		<input type="text" id="sex" name="sex" th:value="${signupForm.sex}">
+		<input type="radio" id="male" name="sex" value="male" th:checked="${signupForm.sex == 'male'}">
+		<label for="male">男性</label>
+
+		<input type="radio" id="female" name="sex" value="female" th:checked="${signupForm.sex == 'female'}">
+		<label for="female">女性</label>
+
+		<input type="radio" id="other" name="sex" value="other" th:checked="${signupForm.sex == 'other'}">
+		<label for="other">LGBTQ</label>
+
 		<span th:errors="${signupForm.sex}"></span><br>
+
 		<label for="birth">生年月日　　：</label>
 		<input type="date" id="birth" name="birth" th:value="${signupForm.birth}">
 		<span th:errors="${signupForm.birth}"></span><br>
@@ -31,4 +44,8 @@
 	</form>
 	<a th:href="@{/loginForm}">ログイン画面</a>
 </body>
+
 </html>
+<!--		<label for="sex">性　　別　　：</label>-->
+<!--		<input type="text" id="sex" name="sex" th:value="${signupForm.sex}">-->
+<!--		<span th:errors="${signupForm.sex}"></span><br>-->
