@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>ReserveExtension</title>
+<link th:href="@{/css/reserveextension.css}" rel="styleSheet">
+</head>
+<body th:with="rtime=${reserve.reservetime},rstart=${reserve.startdate},rend=${reserve.enddate}">
+	<h3>KITOレンタカー　予約延長画面</h3>
+	<h4>現在の予約内容</h4>
+	<form th:action="@{'/reserveextensionconf'}" method="post" th:object="${reserve}">
+		<table border="1">
+			<tr>
+				<th>フルネーム</th>
+				<th>予約日時</th>
+				<th>レンタル開始日</th>
+				<th>レンタル終了日</th>
+				<th>車種</th>
+				<th>金額</th>
+			</tr> 
+			<tr>
+				<td th:text="*{fullnameid}"></td>
+				<td th:text="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" style="text-align:center" ></td>
+				<td th:text="${#temporals.format(rstart, 'yyyy年MM月dd日')}" style="text-align:center"></td>
+				<td th:text="${#temporals.format(rend, 'yyyy年MM月dd日')}" style="text-align:center"></td>
+				<td th:text="|${car.cartype} ${car.maker} ${car.carname} ${car.passengers}人乗り|" style="text-align:center"></td>
+				<td th:text="|*{amount}円|" style="text-align:center"></td>
+			</tr>
+			<input type="hidden" name="carid" th:value="*{carid}"/>
+			<input type="hidden" name="fullnameid" th:value="*{fullnameid}"/>
+			<input type="hidden" name="reservetime" th:value="*{reservetime}"/>
+			<input type="hidden" name="startdate" th:value="*{startdate}"/>
+			<input type="hidden" name="enddate" th:value="*{enddate}"/>
+			<input type="hidden" name="amount" th:value="*{amount}"/>
+			<input type="hidden" name="reserveid" th:value="*{reserveid}"/>
+		</table>
+		<div>
+				<h4>延長後のレンタル終了日を選択し、延長申し込みボタンを押してください。</h4>
+				<label for="end">延長後のレンタル終了日：</label>
+		   	    <input type="date" id="end" class="extension" name="endafter" value="" th:min="${rend}" max="2024-07-22" required/><br>
+		   	    <p th:if="${error}">
+		   	     予約の延長ができませんでした。日程を変更してください。
+		   	    </p>
+				<button><a th:href="@{'/reservation'}">戻る</a></button>
+				<input type="submit" name="reserveextension" value="延長申し込み" />
+		</div>
+	</form>
+</body>
+</html>

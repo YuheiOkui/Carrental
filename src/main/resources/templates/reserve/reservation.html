@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>Reservation</title>
+<link th:href="@{/css/reservation.css}" rel="styleSheet">
+</head>
+<body>
+	<h3>KITOレンタカー　予約確認画面</h3>
+		<table border="1">
+			<tr>
+				<th>フルネーム</th>
+				<th>予約日時</th>
+				<th>レンタル開始日</th>
+				<th>レンタル終了日</th>
+				<th>車種</th>
+				<th>金額</th>
+				<th>延長</th>
+				<th>キャンセル</th>
+			</tr>
+			<tr th:each="list : ${reservation}" th:with="rtime=${list.reservetime},rstart=${list.startdate},rend=${list.enddate}">
+				<td th:text="${list.fullnameid}"></td>
+				<td th:text="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" style="text-align:center"></td>
+				<td th:text="${#temporals.format(rstart, 'yyyy年MM月dd日')}" style="text-align:center"></td>
+				<td th:text="${#temporals.format(rend, 'yyyy年MM月dd日')}" style="text-align:center"></td>
+				<td th:text="|${list.car.cartype} ${list.car.maker} ${list.car.carname} ${list.car.passengers}人乗り|" style="text-align:center"></td>
+				<td th:text="|${list.amount}円|" style="text-align:center"></td>
+				<td>
+					<form th:action="@{/reserveextension}" method="get">
+						<input type ="hidden" name="reserveid" th:value="${list.reserveid}"/> 
+						<input type ="submit" name="extension" value="延長"/>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/reservecancel}" method="get">
+						<input type ="hidden" name="reserveid" th:value="${list.reserveid}"/> 
+						<input type ="submit" name="cancel" value="キャンセル"/>
+					</form>
+				</td>
+			</tr>
+		</table>
+		<button><a th:href="@{'/reserve'}">戻る</a></button>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package carrental.domain.service.reserve;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class ReserveService {
 		reserveRepository.save(reserve);
 	}
 	
+	public Optional<Reserve> findReserve(Integer reserveid) {
+		return reserveRepository.findById(reserveid);
+	}
+	
 	public List<Reserve> findReserveCar(Integer carid) {
 		return reserveRepository.findByCaridOrderByReserveidAsc(carid);
 	}
@@ -32,6 +37,10 @@ public class ReserveService {
 	
 	public List<Reserve> findAllReserve() {
 		return reserveRepository.findAll();
+	}
+	
+	public void deleteReserve(Integer reservid) {
+		reserveRepository.deleteById(reservid);
 	}
 	
 }

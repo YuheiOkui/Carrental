@@ -31,17 +31,20 @@ public class Reserve {
 	private Car car;
 	private String fullnameid;
 	private LocalDateTime reservetime;
+	private Integer amount;
+	
 	
 	public Reserve() {
 	}
 	
-	public Reserve( LocalDate startdate, LocalDate enddate, Integer carid, String fullnameid, 
-			LocalDateTime reservetime) {
+	public Reserve(LocalDate startdate, LocalDate enddate, Integer carid, String fullnameid, 
+			LocalDateTime reservetime, Integer amount) {
 		this.startdate = startdate;
 		this.enddate = enddate;
 		this.carid = carid;
 		this.fullnameid = fullnameid;
 		this.reservetime = reservetime; 
+		this.amount = amount;
 	}
 }
 	

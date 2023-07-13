@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<title>ReserveExtensionCpl</title>
+<link th:href="@{/css/reserveextensioncpl.css}" rel="styleSheet">
+</head>
+<body th:with="endbefore=${reserve.enddate}">
+	<h3>KITOレンタカー　予約延長完了画面</h3>
+	<h4>以下の内容で予約の変更が完了しました。</h4>
+	<h4>変更後の予約内容</h4>
+		<table border="1">
+			<tr>
+				<th>フルネーム</th>
+				<th>予約日時</th>
+				<th>レンタル開始日</th>
+				<th>レンタル終了日</th>
+				<th>車種</th>
+				<th>金額</th>
+			</tr>
+			<tr>
+				<td th:text="${reserve.fullnameid}"></td>
+				<td th:text="${reserve.reservetime}"></td>
+				<td th:text="${reserve.startdate}"></td>
+				<td th:text="${reserve.enddate}"></td>
+				<td><th:text="|${reserve.car.cartype} *{reserve.car.maker} *{reserve.car.carname} *{reserve.car.passengers}人乗り"></td>
+				<td th:text="${reserve.amount}"></td>
+			</tr>
+		</table>
+		<div>
+				<button><a th:href="@{'/reservation'}">戻る</a></button>
+		</div>
+	</form>
+</body>
+</html>
