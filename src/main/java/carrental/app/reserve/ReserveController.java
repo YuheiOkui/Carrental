@@ -43,7 +43,8 @@ public class ReserveController {
 	@PostMapping("reservein")
 	String reservein(@Validated ReserveSearchForm reserveSearchForm, BindingResult br, Model model) {
 			if (br.hasErrors()) {
-			return "reserve/reserve";//エラーメッセージ必要？
+				model.addAttribute("carList",carService.findCars());
+				return "reserve/reserve";//エラーメッセージ必要？
 		}
 		List<Reserve> allreserve = reserveService.findReserveCar(reserveSearchForm.getCarid());
 		for (Reserve list : allreserve) {
@@ -70,7 +71,6 @@ public class ReserveController {
 	@PostMapping("reserved")
 	String reserved(@Validated ReserveForm reserveForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {
-			model.addAttribute("carList",carService.findCars());
 			model.addAttribute("carList",carService.findCars());
 			return "reserve/reserve";//エラーメッセージ必要？
 		}
@@ -108,7 +108,8 @@ public class ReserveController {
 		for (Reserve list : allreserve) {
 			if (endafter.isEqual(list.getStartdate()) ||
 			   (endafter.isAfter(list.getStartdate()) && endafter.isBefore(list.getEnddate())) ||
-				endafter.isEqual(list.getEnddate())){
+				endafter.isEqual(list.getEnddate())) {
+				model.addAttribute("car", carService.findItem(reserve.getCarid()));
 				model.addAttribute("reserve", reserve);
 				model.addAttribute("error", true);
 				return "reserve/reserveextension";
@@ -118,6 +119,7 @@ public class ReserveController {
 		reserve.setReservetime(LocalDateTime.now());
 		reserve.setAmount(carService.findItem(reserve.getCarid()).getCarprice() * (reserve.getEnddate().compareTo(reserve.getStartdate()) + 1));
 		reserveService.save(reserve);
+		model.addAttribute("car", carService.findItem(reserve.getCarid()));
 		model.addAttribute("reserve", reserve);
 		return "reserve/reserveextensioncpl";
 	}

@@ -3,7 +3,7 @@ package carrental.app.reserve;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,14 +18,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ReserveForm {
 	@NotNull
+	@FutureOrPresent
 	private LocalDate startdate;
 	@NotNull
+	@FutureOrPresent
 	private LocalDate enddate;
 	@NotNull
 	private Integer carid;
-	@NotBlank
 	private String fullnameid;
-	@NotNull
 	private LocalDateTime reservetime;
 	@NotNull
 	private Integer amount;

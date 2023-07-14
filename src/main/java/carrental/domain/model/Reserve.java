@@ -30,6 +30,9 @@ public class Reserve {
 	@JoinColumn(name="carid", insertable=false, updatable=false)
 	private Car car;
 	private String fullnameid;
+	@ManyToOne
+	@JoinColumn(name="fullnameid", insertable=false, updatable=false)
+	private User user ;
 	private LocalDateTime reservetime;
 	private Integer amount;
 	

@@ -15,7 +15,7 @@
 	</form>
 	<form th:action="@{'/reservein'}" method="post">
 		<label for="start">利用開始日：</label>
-		<input type="date" id="start" class="reserve" name="startdate" value="" th:min="${today}" required/>
+		<input type="date" id="start" class="reserve" name="startdate" value="" th:min="${today}" max="2024-07-22" required/>
 		<label for="end">利用終了日：</label>
 		<input type="date" id="end" class="reserve" name="enddate" value="" th:min="${today}" max="2024-07-22" required/><br>
 		<label for="car">車の選択：</label>
@@ -29,5 +29,16 @@
         </select><br>
          <input type="submit" name="reserve" value="決定" />
 	</form>
+	<script>
+		const startdateinput = document.getElementById('start');
+		const enddateinput = document.getElementById('end');
+		enddateinput.addEventListener('change', function() {
+			const startdatevalue = new Date(startdateinput.value);
+			const enddatevalue = new Date(enddateinput.value);
+			if (enddatevalue < startdatevalue) {
+				enddateinput.value = startdateinput.value;
+			}
+		});
+	</script>
 </body>
 </html>

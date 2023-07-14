@@ -17,10 +17,10 @@
 				<th>レンタル開始日</th>
 				<th>レンタル終了日</th>
 				<th>車種</th>
-				<th>金額</th>
+				<th>金額</th> 
 			</tr> 
 			<tr>
-				<td th:text="*{fullnameid}"></td>
+				<td th:text="*{fullnameid}" style="text-align:center"></td>
 				<td th:text="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" style="text-align:center" ></td>
 				<td th:text="${#temporals.format(rstart, 'yyyy年MM月dd日')}" style="text-align:center"></td>
 				<td th:text="${#temporals.format(rend, 'yyyy年MM月dd日')}" style="text-align:center"></td>

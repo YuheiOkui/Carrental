@@ -7,7 +7,9 @@
 <link th:href="@{/css/reservefail.css}" rel="styleSheet">
 </head>
 <body>
-	<font size="4" color="red">予約ができませんでした。日付または車を変更して再度予約してください。</font>
+	<font size="4" color="red">ご希望の日程、車で予約することができませんでした。</font><br>
+	<font size="4" color="red">現在のご希望の日程で予約可能な車を検索するか、ご希望の車が予約可能な日程を検索することができます。</font><br>
+	<font size="4" color="red">又は、予約画面に戻り、再度御予約をお願いします。</font><br>
 	<form th:action="@{'/reserve'}" method="get">
 	 	<input type="submit" name="reservefail" value="予約画面に戻る" />
 	</form>
