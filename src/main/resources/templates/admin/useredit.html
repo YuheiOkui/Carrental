@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!-- kurokawa 作成 -->
+<html>
+<head>
+<meta charset="UTF-8">
+<title>UserEdit</title>
+</head>
+<body>
+	<h3>User情報変更</h3>
+	<a th:href="@{/admin/userlist}">User一覧へ戻る</a>
+	
+	
+	<form th:action="@{/admin/editconf}" method="post" th:object="${userEditForm}">
+	<table>	
+			<tr>
+				<td>フルネーム:</td>
+			     <td><input type ="text" name="fullnameId" th:value="${userEditForm.fullnameId}" th:readonly="true">
+				</input></td>
+			</tr>
+			<tr>
+				<td>ユーザー名:</td>
+				<td>
+				<input type="text" name="username" th:value="${userEditForm.username}">
+				<span th:errors="*{username}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>生年月日:</td>
+				<td>
+				<input type="date" name="birth" th:value="${userEditForm.birth}">
+				</td>
+			</tr>
+			<tr>
+			<td>性別:</td>
+				<tr th:each="males :${male}">
+				<td>		 	
+				<input type="radio" name="sex" th:value= "${males.key}" th:text="${males.value}" 
+				th:checked="${userEditForm.sex == males.key}">
+				</td>
+				</tr>
+				<tr th:each="fls :${female}">
+				<td>		 	
+				<input type="radio" name="sex" th:value= "${fls.key}" th:text="${fls.value}" 
+				th:checked="${userEditForm.sex == fls.key}">
+				</td>
+				</tr>
+				<tr th:each="ls :${LGBTQ}">
+				<td>		 	
+				<input type="radio" name="sex" th:value= "${ls.key}" th:text="${ls.value}" 
+				th:checked="${userEditForm.sex == ls.key}">
+				</td>
+				</tr>
+			</tr>
+			<tr>
+				<td>ユーザー権限:</td>
+				<td>
+					<select name="rolename" th:field="${userEditForm.rolename}">
+						<option th:each="role :${userEditForm.roleNameList}"
+						th:value="${role.value}" th:text="${role.text}">
+							
+						</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>パスワード:</td>
+				<td>
+					<input type="password" name="password" th:value="${userEditForm.password}" th:readonly="true">
+				</td>
+			</tr>
+		</table>
+		<button type="submit" >登録</button>		
+	</form>
+
+</body>
+</html>

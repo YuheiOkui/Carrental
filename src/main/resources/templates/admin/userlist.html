@@ -6,28 +6,25 @@
 </head>
 <body>
 <h3>ユーザー一覧</h3>
-
-<a>管理者メニューに戻る</a>
+<!--　作成:黒川　-->
+<a th:href="@{/admin}">管理者メニューに戻る</a>
 <table border="1">
 	<tr>
-		<th>ユーザーID</th>
-		<th>名前</th>
+		<th>フルネームID</th>
+		<th>ユーザーー名</th>
 		<th>生年月日</th>
 		<th>性別</th>
-		<th>パスワード</th>
 		<th>権限</th>
 		<th>編集</th>
 	</tr>
 	<tr th:each="user : ${userlist}">
-		<td text="${user.userid}"></td>
-		<td text="${user.name}"></td>
-		<td text="${user.birth}"></td>
-		<td text="${user.sex}"></td>
-		<td text="${user.pass}"></td>
-		<td text="${user.authority}"></td>
-	
-		<td><form th:action="" method="get">
-				<input type="hidden" name="userid" th:value="${user.userid}"/>
+		<td th:text="${user.fullnameId}"></td>
+		<td th:text="${user.username}"></td>
+		<td th:text="${user.birth}"></td>
+		<td th:text="${user.sex}"></td>
+		<td th:text="${user.roleName}"></td>
+		<td><form th:action="@{/admin/edit}" method="get">
+				<input type="hidden" name="fullnameId" th:value="${user.fullnameId}"/>
 				<input type="submit" name="edit" value="編集"/>
 		 	</form>
 		</td>
