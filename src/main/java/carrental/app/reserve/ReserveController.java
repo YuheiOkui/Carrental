@@ -50,10 +50,12 @@ public class ReserveController {
 		for (Reserve list : allreserve) {
 			if (reserveSearchForm.getStartdate().isEqual(list.getStartdate()) ||
 			   (reserveSearchForm.getStartdate().isAfter(list.getStartdate()) && reserveSearchForm.getStartdate().isBefore(list.getEnddate())) ||
-			   reserveSearchForm.getStartdate().isEqual(list.getEnddate()) ||
-			   reserveSearchForm.getEnddate().isEqual(list.getStartdate()) ||
+			    reserveSearchForm.getStartdate().isEqual(list.getEnddate()) ||
+			    reserveSearchForm.getEnddate().isEqual(list.getStartdate()) ||
 				(reserveSearchForm.getEnddate().isAfter(list.getStartdate()) && reserveSearchForm.getEnddate().isBefore(list.getEnddate())) ||
-				reserveSearchForm.getEnddate().isEqual(list.getEnddate())){
+				reserveSearchForm.getEnddate().isEqual(list.getEnddate()) || 
+				(list.getStartdate().isAfter(reserveSearchForm.getStartdate()) && list.getStartdate().isBefore(reserveSearchForm.getEnddate())) ||
+				(list.getEnddate().isAfter(reserveSearchForm.getStartdate()) && list.getEnddate().isBefore(reserveSearchForm.getEnddate()))) {
 				return "reserve/reservefail";
 			}
 		} 
@@ -108,7 +110,9 @@ public class ReserveController {
 		for (Reserve list : allreserve) {
 			if (endafter.isEqual(list.getStartdate()) ||
 			   (endafter.isAfter(list.getStartdate()) && endafter.isBefore(list.getEnddate())) ||
-				endafter.isEqual(list.getEnddate())) {
+				endafter.isEqual(list.getEnddate()) ||
+			   (list.getStartdate().isAfter(reserve.getEnddate()) && list.getStartdate().isBefore(endafter)) ||
+			   (list.getEnddate().isAfter(reserve.getEnddate()) && list.getEnddate().isBefore(endafter))) {
 				model.addAttribute("car", carService.findItem(reserve.getCarid()));
 				model.addAttribute("reserve", reserve);
 				model.addAttribute("error", true);
