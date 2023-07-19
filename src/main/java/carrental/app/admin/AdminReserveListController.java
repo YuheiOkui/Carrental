@@ -21,7 +21,7 @@ public class AdminReserveListController {
 	@Autowired
 	ReserveService reserveService;
 	
- @GetMapping("/admin/reservelist")
+@GetMapping("/admin/reservelist")
 String reservelist(Model model) {
 List<Reserve> reservelist =reserveService.findAllReserve();
 model.addAttribute("reservelist", reservelist);
@@ -29,7 +29,7 @@ return "admin/reservelist";
 }
 
  
- @PostMapping("admin/reserveedit")
+@PostMapping("admin/reserveedit")
 String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm ReserveEditForm, Model model){
 	 Reserve reserve = reserveService.findReserve(reserveid).get();
 	 	ReserveEditForm.setReserveid(reserve.getReserveid());
@@ -44,7 +44,7 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		model.addAttribute("ReserveEditForm", ReserveEditForm);
 		return "admin/reserveedit";
 	}
- @PostMapping("admin/reserveedit")   
+ @PostMapping("admin/reserveeditconf")   
 	String reserveeditconf(@ModelAttribute("reserveEditForm") @Validated ReserveEditForm reserveEditForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {
 			return "admin/reserveedit";
