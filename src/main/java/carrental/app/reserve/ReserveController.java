@@ -18,6 +18,7 @@ import carrental.domain.model.Reserve;
 import carrental.domain.service.car.CarService;
 import carrental.domain.service.reserve.ReserveService;
 import carrental.domain.service.user.CarUserDetail;
+import carrental.domain.service.user.CarUserService;
 
 /**
  * 予約機能コントローラー
@@ -32,13 +33,15 @@ public class ReserveController {
 	@Autowired
 	ReserveService reserveService;
 	
+	@Autowired
+	CarUserService carUserService;
+	
 	@GetMapping("reserve")
 	String reserve(Model model) {
-		
 		model.addAttribute("carList",carService.findCars());
 		model.addAttribute("today",LocalDate.now());
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reserve";
-	
 	}
 	 
 	//その日付で車空いてるかの判定を行いたい
