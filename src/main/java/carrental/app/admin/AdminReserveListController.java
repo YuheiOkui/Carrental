@@ -27,7 +27,9 @@ List<Reserve> reservelist =reserveService.findAllReserve();
 model.addAttribute("reservelist", reservelist);
 return "admin/reservelist";
 }
- @GetMapping("admin/reserveedit")
+
+ 
+ @PostMapping("admin/reserveedit")
 String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm ReserveEditForm, Model model){
 	 Reserve reserve = reserveService.findReserve(reserveid).get();
 	 	ReserveEditForm.setReserveid(reserve.getReserveid());

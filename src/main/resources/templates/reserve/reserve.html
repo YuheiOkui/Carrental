@@ -16,6 +16,7 @@
         <header class="wrapper">
             <div class="log">レンタカー</div>
             <div class="nav">
+				
                 <ul>
                     <li><a th:href="@{reserve/price}">Price</a></li>
                     <li><a th:href="@{reserve.lineup}">Lineup</a></li>
@@ -35,26 +36,7 @@
 </div>
 </section>
    <section class="reserve">
-<!--        <div class="contents">-->
-<!--        <h1 class="title">About Us</h1>-->
-<!--        <div clas="contents">-->
-<!--       <div class="contents wrapper">-->
-<!--            <div class="aboutus-image"><img th:src="@{images/car/911GT3.jpg}" ></div>-->
-<!--            <div class="msgs">-->
-<!--                <h2>夢のお車を最安値で提供します</h2>-->
-<!--                <p>-->
-<!--                    私たちは皆さまの旅をより快適なものとして頂けるよう、-->
-<!--                    最安値でお車をご提供いたします。-->
-<!--                    いつか夢見たお車で知らない土地を巡る楽しみのお手伝いを-->
-<!--                    いたします。-->
-<!--                </p>-->
-<!--                <p>-->
-<!--                    お手頃価格のお車もご用意しております。-->
-<!--                    お客様の理想の相棒をどうぞごゆっくりお選びくださいませ。-->
-<!--                </p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        </div>-->  
+
 		  <!--奥井さん作成-->
 	<h3>KITOレンタカー　予約画面</h3>
 	<div sec:authorize="${hasRole('ADMIN')}"><a th:href="@{'/admin'}" align="right">管理画面</a></div>
@@ -98,14 +80,14 @@
         <h1 class="title">Products</h1>
         <div class="contents">
             <div class="price">
-                <div class="products-bg"><img th:src="@{images/car/SF90スパイダー.jpg}"></div>
+                <div class="products-bg"><img th:src="@{images/car/car1.png}"></div>
                 <div class="products-info">
-                    <h2>価格</h2>
+                    <h2>　　　価格</h2>
                     <div class="square-btn"><a th:href="@{reserve/price}">PRICE All</a></div>
                 </div>
             </div>
             <div class="rinnup">
-                <div class="products-bg"><img th:src="@{images/car/WRXS4 1.jpg}"></div>
+                <div class="products-bg"><img th:src="@{images/car/car2.png}"></div>
                 <div class="products-info">
 					<h2>レンタカー　ラインナップ</span></h2>
                     <div class="square-btn"><a th:href="@{reserve.lineup}">CAR All</a></div>
@@ -115,7 +97,7 @@
         </section>
 
    <section class="ranking wrapper">
-        <h2 class="ranking-title">人気のお車</h2>
+        <h2 class="ranking-title">スタッフおすすめ</h2>
         <ul class="slider">
             <li class="ranking-item">
                 <div class="ranknumber"><img th:src="@{images/car/no1.png}" ></div>
@@ -123,8 +105,7 @@
              <div class="ranking-info">
                <div>
                <p class="name">アルトワークス</p>
-               <p class="price">1000円+tax</p>
-               </div> 
+               <p class="price">一日：12,000円</p>
             </div>   
             </li>
             <li class="ranking-item">
@@ -132,7 +113,7 @@
             <img th:src="@{images/car/ウルスS.jpg}">
 	          <div class="ranking-info">
                <p class="name">ウルスS</p>
-               <p class="price">1000円+tax</p>
+               <p class="price">一日:150,000円</p>
             </li>
             </div>   
             <li class="ranking-item">
@@ -140,21 +121,21 @@
             <img th:src="@{images/car/スカイラインR34.jpg}">
            <div class="ranking-info">
               <p class="name">スカイラインR34</p>
-               <p class="price">1000円+tax</p>
+               <p class="price">一日：20,000円</p>
            </div> 
           </li>  
             <li class="ranking-item">
             <div class="ranking-info">
                <img th:src="@{images/car/ランドクルーザー.jpg}">
                <p class="name">ランドクルーザー</p>
-               <p class="price">1000円+tax</p>
+               <p class="price">一日30,000円</p>
              </div> 
 	        </li>
            <li class="ranking-item">
            <div class="ranking-info">
                 <img th:src="@{images/car/RX-7.jpg}">
-                <p class="name">RX-7</p>
-                <p class="price">1000円+tax</p>
+                <p class="name">RX-x7</p>
+                <p class="price">一日:18,000円</p>
              </div> 
             </li>
     </section>
@@ -168,7 +149,9 @@
                 <div class="address">
                     <h2>住所:
 					</h2>
-                    <p>あああああ</p>
+                    <p>〒542-0082 </p>
+                    <p></p>
+					<p>大阪府大阪市中央区島之内１丁目４−７ 株式会社 Baifun 本社ビル ３F</p>
                 </div>
                 <div class="tel">
                     <h2>電話番号:</h2>
