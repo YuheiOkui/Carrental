@@ -29,7 +29,7 @@ return "admin/reservelist";
 }
 
  
-@PostMapping("admin/reserveedit")
+@GetMapping("admin/reserveedit")
 String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm ReserveEditForm, Model model){
 	 Reserve reserve = reserveService.findReserve(reserveid).get();
 	 	ReserveEditForm.setReserveid(reserve.getReserveid());
@@ -68,6 +68,9 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		if (reserve.getCarid() != reserveEditForm.getCarid()) {
 			reserve.setCarid(reserveEditForm.getCarid());
 		}
+//		if (reserve.getCarname() != reserveEditForm.getCarname()) {
+//			reserve.setCarname(reserveEditForm.getCarname());
+//		}
 		if (reserve.isEnableflag() != reserveEditForm.isEnableflag()) {
 			reserve.setEnableflag(reserveEditForm.isEnableflag());
 		}
