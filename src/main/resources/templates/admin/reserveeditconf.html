@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ReserveEditConf</title>
+
+</head>
+<body>
+	<a th:href="@{/admin/reservelist}" >予約一覧にもどる</a>
+	<form th:action="@{/admin/reservelist}" method="post" th:object="${reserve}">
+		<table>
+			<tr>
+				<td>予約ID</td>
+				<td>
+					<input type="text" name="reserveid" th:value="${reserve.reserveid}" th:readonly="true" />
+					<span th:errors="*{reserveid}" style="color:red"></span>
+				</td> 
+			</tr>
+			<tr>
+				<td>予約日時</td>
+				<td>
+					<input type="text" name="reservetime" th:value="${reserve.reservetime}" th:readonly="true" />
+					<span th:errors="*{reservetime}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>ユーザーID</td>
+				<td>
+					<input type="text" name="fullnameid" th:value="${reserve.fullnameid}" th:readonly="true" />
+					<span th:errors="*{Fullnameid}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>ユーザー名</td>
+				<td>
+					<input type="text" name="username" th:value="${username}" th:readonly="true" />
+					<span th:errors="${username}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>開始</td>
+				<td>
+					<input type="text" name="startdate" th:value="${reserve.startdate}" />
+					<span th:errors="*{startdate}" style="color: red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>返却日</td>
+				<td>
+					<input type="text" name="enddate" th:value="${reserve.enddate}" />
+					<span th:errors="*{enddate}" style="color: red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>車両ID</td>
+				<td>
+					<input type="text" name="carid" th:value="${reserve.carid}" />
+					<span th:errors="*{carid}" style="color: red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>車種名</td>
+				<td>
+					<input type="text" name="carname" th:value="${car.carname}" />
+					<span th:errors="${car.carname}" style="color: red"></span>
+				</td>
+			</tr>　
+			<h3>変更完了しました</h3>
+<!--			<tr>-->
+<!--				<td>無効フラグ：</td>-->
+<!--				<td>-->
+<!--					<input type="checkbox" name="enableflag" th:field="${reserveEditForm.enableflag}" />-->
+<!--				</td>-->
+<!--			</tr>-->
+		</table>
+
+</body>
+</html>

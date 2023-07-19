@@ -22,6 +22,6 @@ public class ReserveEditForm {
 		private Integer carid;
 		@Size(min=1, max=52)
 		private String carname;
-		
+		private boolean enableflag;
 	}
 	
