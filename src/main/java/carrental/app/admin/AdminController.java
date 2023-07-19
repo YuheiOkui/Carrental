@@ -43,21 +43,35 @@ public class AdminController {
 		carEditForm.setCartype(car.getCartype());
 		carEditForm.setCarname(car.getCarname());
 		carEditForm.setMaker(car.getMaker());
+		carEditForm.setColor(car.getColor());
+		carEditForm.setPassengers(car.getPassengers());
 		carEditForm.setCarprice(car.getCarprice());
 		carEditForm.setEnableflag(car.isEnableflag());
-		model.addAttribute("car", carEditForm);
-		return "admin/caredit";
+		model.addAttribute("carEditForm", carEditForm);
+		return "admin/carlistedit";
 	}
 										// admin に careditconfをつくる
-	@PostMapping("admin/CarEditconf")   // 編集画面で書き換えたデータをもとに入力チェック
+	@PostMapping("admin/carlisteditconf")   // 編集画面で書き換えたデータをもとに入力チェック
 	String careditconf(@ModelAttribute("carEditForm") @Validated CarEditForm carEditForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {
-			return "admin/caredit";
+			return "admin/carlistedit";
 		}
-		Car car = carService.findItem(carEditForm.getCarid());   // caridを呼んできて比較、
+		Car car = carService.findItem(carEditForm.getCarid());   // caridを呼んできて比較、データが同じでなければ上書き
+		if (car.getCartype() != carEditForm.getCartype()) {
+			car.setCartype(carEditForm.getCartype());
+		}
 		if (!car.getCarname().equals(carEditForm.getCarname())) {
 			car.setCarname(carEditForm.getCarname());
-		}                                                                 //データが同じでなければ上書き
+		} 
+		if (car.getMaker() != carEditForm.getMaker()) {
+			car.setMaker(carEditForm.getMaker());
+		}
+		if (car.getColor() != carEditForm.getColor()) {
+			car.setColor(carEditForm.getColor());
+		}
+		if (car.getPassengers() != carEditForm.getPassengers()) {
+			car.setPassengers(carEditForm.getPassengers());
+		}
 		if (car.getCarprice() != carEditForm.getCarprice()) {
 			car.setCarprice(carEditForm.getCarprice());
 		}
@@ -65,7 +79,7 @@ public class AdminController {
 			car.setEnableflag(carEditForm.isEnableflag());
 		}
 		carService.carregist(car);
-		return "admin/careditconf";
+		return "admin/carlisteditconf";
 	}
 	
 //	セールス

@@ -2,6 +2,7 @@ package carrental.app.sales;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,36 @@ public class SalesService {
                 .orElseThrow(() -> new RuntimeException("Car not found"));
 
         LocalDateTime saleTime = LocalDateTime.now();
-
-        Sales sales = new Sales(car, startDate, endDate, fullName, saleTime, amount);
-        salesRepository.save(sales);
+   
+//        2023/07/14 追加訂正
+//        Sales sales = new Sales();
+//        sales.setReserveTime(reservetime);
+//        sales.setUserId(userId);
+//        sales.setFullName(fullName);
+//        sales.setCar(car);
+//        sales.setStartDate(startDate);
+//        sales.setEndDate(endDate);
+//        sales.setAmount(amount);
+//        sales.setEnable(true);
+//
+//        salesRepository.save(sales);
     }
+
+    public List<Sales> getAllSales() {
+        return salesRepository.findAll();
+    }
+
+    public int calculateTotalAmount() {
+        List<Sales> salesList = salesRepository.findAll();
+        int totalAmount = 0;
+        for (Sales sales : salesList) {
+            totalAmount += sales.getAmount();
+        }
+        return totalAmount;
+    }
+//			2023/07/14 訂正　、（訂正前）確認とれるまでコメントアウト
+//        Sales sales = new Sales(car, startDate, endDate, fullName, saleTime, amount);
+//        salesRepository.save(sales);
+//    }
+        
 }

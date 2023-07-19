@@ -19,9 +19,9 @@ public class Sales {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer salesId;
-	
+	private Integer carid;	
 	@ManyToOne
-	@JoinColumn(name = "carid")
+	@JoinColumn(name="carid", insertable=false, updatable=false)
 	private Car car;
 	
 	private LocalDate startDate;
