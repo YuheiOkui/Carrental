@@ -34,9 +34,11 @@ public class ReserveController {
 	
 	@GetMapping("reserve")
 	String reserve(Model model) {
+		
 		model.addAttribute("carList",carService.findCars());
 		model.addAttribute("today",LocalDate.now());
 		return "reserve/reserve";
+	
 	}
 	 
 	//その日付で車空いてるかの判定を行いたい

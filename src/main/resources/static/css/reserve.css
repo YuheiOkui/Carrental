@@ -138,7 +138,7 @@ header{
 }
 .fv{
     background-image: url(../images/harinezumi.jpg);
-    min-height: 90vh;
+    min-height: 25vh;
     background-size: cover;
     background-position: center-top;
     background-repeat: no-repeat;
@@ -148,43 +148,38 @@ header{
 }
 .keymsgs{
     position: absolute;
-    right: 5vw;
-    bottom: 5vw;
+    right: 3vw;
+    bottom: 3vw;
 }
 .keymsg{
-    font-size: 0.8rem;
-    font-weight:400;
+    font-size: 2rem;
+    font-weight:600;
     padding: 0.3em 0.5em;
-    background-color: white;
+     color:black;
+    background-color:transparent;
+
 }
 
-/*about us*/
+/*reserve*/
 
 .reserve {
-    display: block;
-    border: 2px solid;
+   display: inline-block;
     font-size: 15px;
     font-weight: 100;
-    padding-right:5%;
+    width: 25rem;
+    border:2px black solid;
+    border-spacing: 5px;
     
-    margin-left: auto;
-   
-}
-/*.aboutus-image{*/
-/*width: 500px;*/
-/*margin-right: 3rem;*/
-/*}*/
-/*.aboutus-image img{*/
-/*    width: 420px;*/
-/*}*/
-.aboutus .contents .msgs{
-    max-width: 25rem;
+    
 }
 
-.aboutus .contents .msg p{
-    display: block;
-    padding-top: 2rem;
+.reserve .reserve{
+	display:inline-block;
+
+	padding-left: -5rem;
 }
+
+
 /* products */
 .products .contents{
     display:flex;
@@ -194,6 +189,7 @@ header{
     width:100%;
 }
 .products-bg img{
+	padding-right:10rem;
     width: 100%;
     
 }
@@ -204,7 +200,8 @@ header{
 
 .products-info{
     position:absolute;
-    color:white;
+     color:cornsilk;
+    background-color:transparent;
     left: 10%;
     bottom: 20%;
 } 
@@ -290,19 +287,19 @@ header{
 }
 .location .infomation div{
     display: flex;
-
+ 
 }
 .location h3{
     display:block;
     margin: 15px auto;
-    font-size: 3.2rem;
+    font-size: 5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 400;
+    font-weight: 800;
     text-transform: uppercase;
 
 }
 .location h2{
-    font-size:1.4rem;
+    font-size:1rem;
     width:6rem;
 }
 
@@ -311,7 +308,7 @@ display:flex;
 flex-direction: column;
 }
 .infomation > div:not(:first-choild){
-    margin-top:10px;
+    margin-top:15px;
 }
 
 
