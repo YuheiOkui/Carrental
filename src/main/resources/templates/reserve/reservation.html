@@ -3,10 +3,26 @@
 	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
 <meta charset="UTF-8">
+<!--黒川追加-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reservation</title>
-<link th:href="@{/css/reservation.css}" rel="styleSheet">
+<link rel="styleSheet"  th:href="@{css/reservation.css}" >
 </head>
 <body>
+	<main>
+		  <header class="wrapper">
+            <div class="log">レンタカー</div>
+            <div class="nav">
+                <ul>
+                    <li><a th:href="@{reserve/price}">Price</a></li>
+                    <li><a th:href="@{reserve.lineup}">Lineup</a></li>
+                   <li> <form th:action="@{'/logout'}" method="post">
+					<button>ログアウト</button>
+					</form></li>
+                </ul>
+            </div>
+        </header>
+	<!--奥井さん作成-->
 	<h3>KITOレンタカー　予約確認画面</h3>
 		<table border="1">
 			<tr>
@@ -40,6 +56,10 @@
 				</td>
 			</tr>
 		</table>
+		
 		<button><a th:href="@{'/reserve'}">戻る</a></button>
+	 <footer>team groupC</footer>
+	</main>
+			
 </body>
 </html>

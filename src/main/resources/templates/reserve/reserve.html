@@ -3,16 +3,63 @@
 	　xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
 <meta charset="UTF-8">
+<!--黒川追加-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reserve</title>
-<link th:href="@{/css/reserve.css}" rel="styleSheet">
+ <!-- reset css-->
+    <link rel="stylehSeet" href="https://unpkg.com/ress/dist/ress.min.css">
+	<link  rel="styleSheet"th:href="@{css/reserve.css}">
 </head>
-<body >
+<body>
+	<main>
+    <section class="fv">
+        <header class="wrapper">
+            <div class="log">レンタカー</div>
+            <div class="nav">
+                <ul>
+                    <li><a th:href="@{reserve/price}">Price</a></li>
+                    <li><a th:href="@{reserve.lineup}">Lineup</a></li>
+                   <li> <form th:action="@{'/logout'}" method="post">
+					<button>ログアウト</button>
+					</form></li>
+                </ul>
+            </div>
+        </header>
+<div class="loop_wrap">
+<img th:src="@{images/car/loop.jpg}">
+<img th:src="@{images/car/loop.jpg}">
+     <div class="keymsgs">
+               <div><span class="keymsg">あなたの夢を実現します</span></div>
+                <div><span class="keymsg">夢の相棒と最高の旅へ</span></div>
+           </div> 
+</div>
+</section>
+   <section class="reserve">
+<!--        <div class="contents">-->
+<!--        <h1 class="title">About Us</h1>-->
+<!--        <div clas="contents">-->
+<!--       <div class="contents wrapper">-->
+<!--            <div class="aboutus-image"><img th:src="@{images/car/911GT3.jpg}" ></div>-->
+<!--            <div class="msgs">-->
+<!--                <h2>夢のお車を最安値で提供します</h2>-->
+<!--                <p>-->
+<!--                    私たちは皆さまの旅をより快適なものとして頂けるよう、-->
+<!--                    最安値でお車をご提供いたします。-->
+<!--                    いつか夢見たお車で知らない土地を巡る楽しみのお手伝いを-->
+<!--                    いたします。-->
+<!--                </p>-->
+<!--                <p>-->
+<!--                    お手頃価格のお車もご用意しております。-->
+<!--                    お客様の理想の相棒をどうぞごゆっくりお選びくださいませ。-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        </div>-->  
+		  <!--奥井さん作成-->
 	<h3>KITOレンタカー　予約画面</h3>
 	<div sec:authorize="${hasRole('ADMIN')}"><a th:href="@{'/admin'}" align="right">管理画面</a></div>
 	<a th:href="@{'/reservation'}" align="right">予約確認</a>
-	<form th:action="@{'/logout'}" method="post">
-		<button>ログアウト</button>
-	</form>
+	
 	<form th:action="@{'/reservein'}" method="post">
 		<label for="start">利用開始日：</label>
 		<input type="date" id="start" class="reserve" name="startdate" value="" th:min="${today}" max="2024-07-22" required/>
@@ -24,7 +71,7 @@
             	 <option
                	 th:each="list : ${carList}"
                	 th:value="${list.carid}"
-               	 th:text="|${list.cartype} ${list.carname} ${list.passengers}人乗り ${list.carprice}円|"
+               	 th:text="|${list.cartype} ${list.carname} ${list.passengers}人乗り ${list.carprice}円|">
             	 </option>
         </select><br>
          <input type="submit" name="reserve" value="決定" />
@@ -40,5 +87,111 @@
 			}
 		});
 	</script>
+	<!--奥井さん作成ここまで-->
+		  	  
+		  
+	  </div>
+            
+      </div>
+    </section>    
+    <section class="products">
+        <h1 class="title">Products</h1>
+        <div class="contents">
+            <div class="price">
+                <div class="products-bg"><img th:src="@{images/car/SF90スパイダー.jpg}"></div>
+                <div class="products-info">
+                    <h2>価格</h2>
+                    <div class="square-btn"><a th:href="@{reserve/price}">PRICE All</a></div>
+                </div>
+            </div>
+            <div class="rinnup">
+                <div class="products-bg"><img th:src="@{images/car/WRXS4 1.jpg}"></div>
+                <div class="products-info">
+					<h2>レンタカー　ラインナップ</span></h2>
+                    <div class="square-btn"><a th:href="@{reserve.lineup}">CAR All</a></div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+   <section class="ranking wrapper">
+        <h2 class="ranking-title">人気のお車</h2>
+        <ul class="slider">
+            <li class="ranking-item">
+                <div class="ranknumber"><img th:src="@{images/car/no1.png}" ></div>
+            <img th:src="@{images/car/アルトワークス.jpg}">
+             <div class="ranking-info">
+               <div>
+               <p class="name">アルトワークス</p>
+               <p class="price">1000円+tax</p>
+               </div> 
+            </div>   
+            </li>
+            <li class="ranking-item">
+           <div class="ranknumber"><img th:src="@{images/car/no2.png}" ></div>
+            <img th:src="@{images/car/ウルスS.jpg}">
+	          <div class="ranking-info">
+               <p class="name">ウルスS</p>
+               <p class="price">1000円+tax</p>
+            </li>
+            </div>   
+            <li class="ranking-item">
+            <div class="ranknumber"><img th:src="@{images/car/no3.png}" ></div>
+            <img th:src="@{images/car/スカイラインR34.jpg}">
+           <div class="ranking-info">
+              <p class="name">スカイラインR34</p>
+               <p class="price">1000円+tax</p>
+           </div> 
+          </li>  
+            <li class="ranking-item">
+            <div class="ranking-info">
+               <img th:src="@{images/car/ランドクルーザー.jpg}">
+               <p class="name">ランドクルーザー</p>
+               <p class="price">1000円+tax</p>
+             </div> 
+	        </li>
+           <li class="ranking-item">
+           <div class="ranking-info">
+                <img th:src="@{images/car/RX-7.jpg}">
+                <p class="name">RX-7</p>
+                <p class="price">1000円+tax</p>
+             </div> 
+            </li>
+    </section>
+
+	
+	  <section class="location">
+       <h1 class="title">Location</h1>
+        <div class="contents">
+            <div class="infomation">
+                <h3>ShopAcces</h3>
+                <div class="address">
+                    <h2>住所:
+					</h2>
+                    <p>あああああ</p>
+                </div>
+                <div class="tel">
+                    <h2>電話番号:</h2>
+                    <p>1234-56-7890</p>
+                </div>
+                <div class="time">
+                    <h2>営業時間</h2>
+                    <div>
+                    <p>月～金　9:00～17:00</p>
+                    <p>土、日　8:30～17:30</p>
+                    </div>
+                </div>
+                <div class="day">
+                    <h2>定休日</h2>
+                    <p>第２，４水曜日</p>
+                </div>
+            </div>
+          <div class="map">
+			<div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.2741879888194!2d135.50741007430233!3d34.673028772929435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e7478d93cc01%3A0x35518abd7cf604f3!2z44Kt44Oj44OrSVTjgqvjg6zjg4Pjgrgg5aSn6Ziq5qCh!5e0!3m2!1sja!2sjp!4v1689660048005!5m2!1sja!2sjp" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+        </div>
+    </section>
+	 <footer>team groupC</footer>
+	</main>
 </body>
 </html>

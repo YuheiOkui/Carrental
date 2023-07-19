@@ -4,14 +4,33 @@
 <head>
 <meta charset="UTF-8">
 <title>ReserveFail</title>
-<link th:href="@{/css/reservefail.css}" rel="styleSheet">
+<link  rel="styleSheet" th:href="@{css/reservefail.css}" >
 </head>
 <body>
+	<main>
+		<section class="fv">
+			<header class="wrapper">
+				<div class="log">レンタカー</div>
+				<div class="nav">
+					<ul>
+						<li><a th:href="@{reserve/price}">Price</a></li>
+						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
+						 <li> <form th:action="@{'/logout'}" method="post">
+					<button>ログアウト</button>
+					</form></li>	
+					</ul>
+				</div>
+			</header>
+		</section>	
+		<!--奥井さん作成-->
 	<font size="4" color="red">ご希望の日程、車で予約することができませんでした。</font><br>
 	<font size="4" color="red">現在のご希望の日程で予約可能な車を検索するか、ご希望の車が予約可能な日程を検索することができます。</font><br>
 	<font size="4" color="red">又は、予約画面に戻り、再度御予約をお願いします。</font><br>
 	<form th:action="@{'/reserve'}" method="get">
 	 	<input type="submit" name="reservefail" value="予約画面に戻る" />
 	</form>
+	<!--ここまで-->
+	 <footer>team groupC</footer>
+	</main>
 </body>
 </html>

@@ -1,0 +1,328 @@
+
+html{
+    font-size: 0.625em;
+}
+body{
+    color: black;
+    
+    line-height: 1.7;
+    font-size: 1.4(em);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.wrapper{
+    margin: auto 5vw;
+}
+/*slide設定*/
+
+ .loop_wrap{
+    position:relative;
+    display: -webkit-flex;
+    display: flex;
+    width:100vw;
+    height:300px;
+    overflow: hiddden;
+}
+.loop_wrap img{
+    width:auto;
+    max-width: fit-content;
+    height:100%;
+    will-change: transform;
+}
+.loop_wrap img:first-child{
+    -webkit-animation: loop 100s -50s linear infinite;
+    animation:loop 100s -50s linear infinite;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.loop_wrap img + img{
+  
+    -webkit-animation:loop2 100s linear infinite;
+    animation:loop2 100s linear infinite;
+}   
+
+ @keyframes loop{
+    0%{
+        -webkit-transform:translateX(100%);
+        -ms-transform:translateX(100%);
+        transform:translateX(100%);
+    }to{
+        -webkit-transform: translateX(-100%);
+        -ms-transform:translateX(-100%);
+        transform:translateX(-100%);
+    } 
+}  
+     @keyframes loop2{
+        0%{
+            -webkit-transform:translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }to{
+            -webkit-transform:translateX(-200%);
+            -ms-transform: translateX(-200%);
+            transform: translateX(-200%);
+        }
+    } 
+    @media (min-width: 900px){
+        .loop-wrap{
+            height:266px;
+        }
+        .loop-wrap img{
+            width:auto;
+            max-width:fit-content;
+            height:100%;
+        }
+    }  
+
+
+
+h1{
+    font-size: 3.5rem;
+    font-family:'Courier New', Courier, monospace;
+    font-weight:300;
+    text-align: left;
+}
+h2{
+    font-size: 2.4rem;
+    font-weight:700;
+}
+
+section:not(:first-child){
+    margin-top: 50px;
+}
+.title{
+    display:flex;
+    font-family:'Courier New', Courier, monospace;
+    align-items: center;
+    padding-bottom: 6rem;
+}
+.title::before{
+    content:"";
+    height: 1px;
+    flex-grow:0.3;
+    background-color:black;
+    margin-right: 2rem;
+}
+
+header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+     border-top:5px blue solid;
+    border-bottom: 5px blue solid;
+}
+.log{
+    font-size: 3.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+}
+.nav ul{
+    display:flex;
+    justify-content: space-between;
+    width:30rem;
+}
+.nav ul li{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.fv{
+    background-image: url(../images/harinezumi.jpg);
+    min-height: 90vh;
+    background-size: cover;
+    background-position: center-top;
+    background-repeat: no-repeat;
+
+    position: relative;
+   
+}
+.keymsgs{
+    position: absolute;
+    right: 5vw;
+    bottom: 5vw;
+}
+.keymsg{
+    font-size: 0.8rem;
+    font-weight:400;
+    padding: 0.3em 0.5em;
+    background-color: white;
+}
+
+/*about us*/
+
+.reserve {
+    display: block;
+    border: 2px solid;
+    font-size: 15px;
+    font-weight: 100;
+    padding-right:5%;
+    
+    margin-left: auto;
+   
+}
+/*.aboutus-image{*/
+/*width: 500px;*/
+/*margin-right: 3rem;*/
+/*}*/
+/*.aboutus-image img{*/
+/*    width: 420px;*/
+/*}*/
+.aboutus .contents .msgs{
+    max-width: 25rem;
+}
+
+.aboutus .contents .msg p{
+    display: block;
+    padding-top: 2rem;
+}
+/* products */
+.products .contents{
+    display:flex;
+}
+
+.products-bg  {
+    width:100%;
+}
+.products-bg img{
+    width: 100%;
+    
+}
+.price, .rinnup{
+    position:relative;
+}
+
+
+.products-info{
+    position:absolute;
+    color:white;
+    left: 10%;
+    bottom: 20%;
+} 
+.square-btn{
+    margin-top: 3rem;
+}
+.square-btn a:hover{
+    background-color: black;
+    color:azure;
+}
+
+
+.margin a:hover{
+    background-color: black;
+    color: aliceblue;
+}
+
+
+.square-btn a{
+    width:150px;
+    height:300px;
+    padding:2rem 12rem;
+    background-color: antiquewhite;    
+    box-shadow: 0px 0px 15px 10px #777777;
+   
+} 
+/*ranking*/
+.ranking-item{
+    width: 250px;
+    position:relative;
+}
+.ranking-item img{
+    width: 100%;
+   
+}
+.ranking-info div{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+.ranknumber{
+    position:absolute;
+    height:45px;
+    width:45px;
+}
+.ranknumber img{
+    width:500%;
+}
+
+.slider{
+    display: flex;
+    background-color: aliceblue;    
+    margin:0 auto;
+    height:100%;
+    width:100%;
+}
+ .ranking-item{
+    height:auto;
+    margin:0.2%;
+    width: 24%;
+}
+.ranking-item img{
+    display: block;
+    height:auto;
+    width:100%;
+    
+}
+.ranking-item name{
+    font-weight:bold;
+    padding:10px;
+    margin:5rem auto;
+}
+.ranking-item price{
+    padding:10px;
+    margin:5rem;
+} 
+
+/*Location*/
+.location .contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.location .infomation div{
+    display: flex;
+
+}
+.location h3{
+    display:block;
+    margin: 15px auto;
+    font-size: 3.2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+.location h2{
+    font-size:1.4rem;
+    width:6rem;
+}
+
+.time div{
+display:flex;
+flex-direction: column;
+}
+.infomation > div:not(:first-choild){
+    margin-top:10px;
+}
+
+
+footer{
+    display:block;
+    font-size: 3px;
+    background-color:aquamarine;
+    padding-top:3rem;
+    padding-left:545px;
+    padding-bottom:30px;
+    border-top:5px blue solid;
+    border-bottom: 5px blue solid;
+
+}

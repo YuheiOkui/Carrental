@@ -4,9 +4,26 @@
 <head>
 <meta charset="UTF-8">
 <title>ReserveExtension</title>
-<link th:href="@{/css/reserveextension.css}" rel="styleSheet">
+<link rel="styleSheet"  th:href="@{css/reserveextension.css}" >
 </head>
 <body th:with="rtime=${reserve.reservetime},rstart=${reserve.startdate},rend=${reserve.enddate}">
+	
+	<main>
+		<section class="fv">
+			<header class="wrapper">
+				<div class="log">レンタカー</div>
+				<div class="nav">
+					<ul>
+						<li><a th:href="@{reserve/price}">Price</a></li>
+						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
+						 <li> <form th:action="@{'/logout'}" method="post">
+					<button>ログアウト</button>
+					</form></li>
+					</ul>
+				</div>
+			</header>
+		</section>	
+	<!--奥井さん作成-->
 	<h3>KITOレンタカー　予約延長画面</h3>
 	<h4>現在の予約内容</h4>
 	<form th:action="@{'/reserveextensionconf'}" method="post" th:object="${reserve}">
@@ -46,5 +63,8 @@
 				<input type="submit" name="reserveextension" value="延長申し込み" />
 		</div>
 	</form>
+	<!--ここまで-->
+	 <footer>team groupC</footer>
+	</main>
 </body>
 </html>

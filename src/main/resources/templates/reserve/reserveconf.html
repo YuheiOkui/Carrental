@@ -4,10 +4,27 @@
 <head>
 <meta charset="UTF-8">
 <title>ReserveConf</title>
-<link th:href="@{/css/reserveconf.css}" rel="styleSheet">
+<link rel="styleSheet" th:href="@{css/reserveconf.css}" >
 </head>
 <body th:with="rtime=${reserveForm.reservetime},rstart=${reserveForm.startdate},rend=${reserveForm.enddate}">
-	<h3>KITOレンタカー　予約確認画面</h3>
+	<main>
+		<section class="fv">
+			<header class="wrapper">
+				<div class="log">レンタカー</div>
+				<div class="nav">
+					<ul>
+						<li><a th:href="@{reserve/price}">Price</a></li>
+						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
+						 <li> <form th:action="@{'/logout'}" method="post">
+					<button>ログアウト</button>
+					</form></li>
+					</ul>
+				</div>
+		
+			</header>
+		</section>	
+	
+	<h3>予約確認画面</h3>
 	<h4>予約内容に間違いがなければ、予約申し込みボタンを押して予約を完了してください。</h4>
 	<form th:action="@{'/reserved'}" method="post" th:object="${reserveForm}">
 		<table border="1">
@@ -39,5 +56,7 @@
 				<input type="submit" name="reserved" value="予約申し込み" />
 		</div>
 	</form>
+	 <footer>team groupC</footer>
+	</main>
 </body>
 </html>
