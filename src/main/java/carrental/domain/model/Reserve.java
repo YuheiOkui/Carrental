@@ -35,7 +35,7 @@ public class Reserve {
 	private User user ;
 	private LocalDateTime reservetime;
 	private Integer amount;
-	
+	private boolean enableflag = false;
 	
 	public Reserve() {
 	}
