@@ -7,7 +7,7 @@
 <body>
 	<h3>車種情報編集</h3>
 	<a th:href="@{/admin/carlist}">車種一覧へ戻る</a>
-	<form th:action="@{/admin/careditconf}" method="post" th:object="${carEditForm}">
+	<form th:action="@{/admin/carlisteditconf}" method="post" th:object="${carEditForm}">
 		<table>
 			<tr>
 				<td>車両ID：</td>
@@ -42,6 +42,13 @@
 				<td>
 					<input type="text" name="color" th:value="${carEditForm.color}" />
 					<span th:errors="*{color}" style="color:red"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>乗員 : </td>
+				<td>
+					<input type="text" name="passengers" th:value="${carEditForm.passengers}" />
+					<span th:errors="*{passengers}" style="color: red"></span>
 				</td>
 			</tr>
 			<tr>

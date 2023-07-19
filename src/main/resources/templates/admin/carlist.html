@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h3>車種一覧</h3>
-	<a th:href="@{/admin}">管理者メニューに戻る</a>																																																																																																																																																																																																																																																																ee
+	<a th:href="@{/admin}">管理者メニューに戻る</a>																																																																																																																																																																																																																																																																
 	<table border="1">
 		<tr>
 			<th>車両ID</th>
@@ -23,10 +23,10 @@
 		<tr th:each="car : ${carList}">
 			<td th:text="${car.carid}"></td>
 			<td th:text="${car.cartype}"></td>
+			<td th:text="${car.carname}"></td>
 			<td th:text="${car.maker}"></td>
 			<td th:text="${car.color}"></td>
-			<td th:text="${car.carname}"></td>
-			<td th:text="${car.passenger}"></td>
+			<td th:text="${car.passengers}"></td>
 			<td th:text="${car.carprice}" align="right"></td>
 			<td th:text="${car.enableflag} ? '無効' : '有効'"></td>
 			<td>
