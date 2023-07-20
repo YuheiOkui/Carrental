@@ -12,63 +12,63 @@
 			<tr>
 				<td>予約ID</td>
 				<td>
-					<input type="text" name="reserveid" th:value="${ReserveEditForm.reserveid}" th:readonly="true" />
+					<input type="text" name="reserveid" th:value="${ReserveEditForm.reserveid}" th:readonly="true" required/>
 					<span th:errors="*{reserveid}" style="color:red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>予約日時</td>
 				<td>
-					<input type="text" name="reservetime" th:value="${ReserveEditForm.reservetime}" th:readonly="true" />
+					<input type="text" name="reservetime" th:value="${ReserveEditForm.reservetime}" th:readonly="true" required/>
 					<span th:errors="*{reservetime}" style="color:red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>ユーザーID</td>
 				<td>
-					<input type="text" name="fullnameid" th:value="${ReserveEditForm.fullnameid}" th:readonly="true" />
+					<input type="text" name="fullnameid" th:value="${ReserveEditForm.fullnameid}" th:readonly="true" required/>
 					<span th:errors="*{Fullnameid}" style="color:red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>ユーザー名</td>
 				<td>
-					<input type="text" name="username" th:value="${ReserveEditForm.username}" th:readonly="true" />
+					<input type="text" name="username" th:value="${ReserveEditForm.username}" th:readonly="true" required/>
 					<span th:errors="*{username}" style="color:red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>開始</td>
 				<td>
-					<input type="text" name="startdate" th:value="${reserveEditForm.startdate}" />
+					<input type="text" name="startdate" th:value="${ReserveEditForm.startdate}" required/>
 					<span th:errors="*{startdate}" style="color: red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>返却日</td>
 				<td>
-					<input type="text" name="enddate" th:value="${reserveEditForm.enddate}" />
+					<input type="text" name="enddate" th:value="${ReserveEditForm.enddate}" required/>
 					<span th:errors="*{enddate}" style="color: red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>車両ID</td>
 				<td>
-					<input type="text" name="carid" th:value="${reserveEditForm.carid}" />
+					<input type="text" name="carid" th:value="${ReserveEditForm.carid}" required />
 					<span th:errors="*{carid}" style="color: red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>車種名</td>
 				<td>
-					<input type="text" name="carname" th:value="${reserveEditForm.carname}" />
+					<input type="text" name="carname" th:value="${ReserveEditForm.carname}"th:readonly="true" required/>
 					<span th:errors="*{carname}" style="color: red"></span>
 				</td>
 			</tr>
 			<tr>
 				<td>無効フラグ：</td>
 				<td>
-					<input type="checkbox" name="enableflag" th:field="${reserveEditForm.enableflag}" />
+					<input type="checkbox" name="enableflag" th:field="${ReserveEditForm.enableflag}"/>
 				</td>
 			</tr>
 		</table>

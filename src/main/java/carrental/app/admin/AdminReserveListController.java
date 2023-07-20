@@ -44,6 +44,7 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		model.addAttribute("ReserveEditForm", ReserveEditForm);
 		return "admin/reserveedit";
 	}
+
  @PostMapping("admin/reserveeditconf")   
 	String reserveeditconf(@ModelAttribute("reserveEditForm") @Validated ReserveEditForm reserveEditForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {

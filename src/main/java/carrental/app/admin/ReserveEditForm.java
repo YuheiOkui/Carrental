@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ReserveEditForm {
 	
-	
+		
 		private Integer reserveid;
 		private LocalDateTime reservetime;
 		private String fullnameid;
