@@ -23,7 +23,6 @@ public class ReserveEditForm {
 		private LocalDate startdate;
 		@FutureOrPresent
 		private LocalDate enddate;
-		@Size(min=2,max=20)
 		private Integer carid;
 		@Size(min=1, max=52)
 		private String carname;
