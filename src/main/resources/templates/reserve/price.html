@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Price ALL</title>
+</head>
+<body>
+	<header class="wrapper">
+            <div class="log">レンタカー</div>
+            <div class="nav">
+                <ul>
+                    <li><a th:href="@{reserve/price}">Price</a></li>
+                    <li><a th:href="@{reserve.lineup}">Lineup</a></li>
+                   <li> <form th:action="@{'/logout'}" method="post">
+					<button>ログアウト</button>
+					</form></li>
+                </ul>
+            </div>
+        </header>
+	<button><a th:href="@{/reserve}">前のページへもどる</a></button>
+	<table border="1">
+		<h1>価格一覧</h1>
+	<tr>
+		<th>一日レンタル料金（円）</th>
+		<th>名前</th>
+		<th>タイプ</th>
+	</tr>
+	<tr th:each ="car : ${carlist}">
+		<td th:text="${car.carprice}"></td>
+		<td th:text="${car.carname}"></td>
+		<td th:text="${car.cartype}"></td>
+	</tr>
+	</table>
+	 <footer>team groupC</footer>
+</body>
+</html>

@@ -11,15 +11,16 @@
 	<link  rel="styleSheet"th:href="@{css/reserve.css}">
 </head>
 <body>
+	
 	<main>
     <section class="fv">
         <header class="wrapper">
             <div class="log">レンタカー</div>
-            <div class="nav">
-				
+            <div class="nav">	
                 <ul>
-                    <li><a th:href="@{reserve/price}">Price</a></li>
-                    <li><a th:href="@{reserve.lineup}">Lineup</a></li>
+					<li>ようこそ 　[[${user.username}]]　様</li>
+                    <li><a th:href="@{price}">Price</a></li>
+                    <li><a th:href="@{lineup}">Lineup</a></li>
                    <li> <form th:action="@{'/logout'}" method="post">
 					<button>ログアウト</button>
 					</form></li>
@@ -83,14 +84,19 @@
                 <div class="products-bg"><img th:src="@{images/car/car1.png}"></div>
                 <div class="products-info">
                     <h2>　　　価格</h2>
-                    <div class="square-btn"><a th:href="@{reserve/price}">PRICE All</a></div>
+                    
+                    <div class="square-btn">
+				<a th:href="@{price}">Car Price</a></div>
+
+
                 </div>
             </div>
             <div class="rinnup">
                 <div class="products-bg"><img th:src="@{images/car/car2.png}"></div>
                 <div class="products-info">
 					<h2>レンタカー　ラインナップ</span></h2>
-                    <div class="square-btn"><a th:href="@{reserve.lineup}">CAR All</a></div>
+                    <div class="square-btn">
+				<a th:href="@{lineup}">CAR All</a></div>
                 </div>
             </div>
             </div>
