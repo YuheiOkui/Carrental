@@ -50,6 +50,7 @@ header{
     display:flex;
     justify-content: space-between;
     width:30rem;
+     margin-right:150px;
 }
 .nav ul li{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -76,6 +77,8 @@ button{
 
 .lineup{
 	height:400px;
+	padding-left:500px;
+	 font-family: Arial, Helvetica, sans-serif;
 }
 .lineup button{
 	margin:20px;

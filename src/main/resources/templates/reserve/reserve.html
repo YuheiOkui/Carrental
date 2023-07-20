@@ -43,13 +43,21 @@
 
 		  <!--奥井さん作成-->
 	<h3>KITOレンタカー　予約画面</h3>
-	<div sec:authorize="${hasRole('ADMIN')}"><a th:href="@{'/admin'}" align="right">管理画面</a></div>
-	<a th:href="@{'/reservation'}" align="right">予約確認</a>
 	
+<!--	<div sec:authorize="${hasRole('ADMIN')}">-->
+<!--	<form th:action="@{'/admin'}" align="right">-->
+<!--	<button>管理画面</button></div>-->
+	<div sec:authorize="${hasRole('ADMIN')}">
+		<button><a th:href="@{'/admin'}" align="right">管理画面</a></button></div>
+	
+<!--	<div><form th:action="@{'/reservation'}" align="right">-->
+<!--	<button>予約確認</button></div>-->
+<button><a th:href="@{'/reservation'}" align="right">予約確認</a></button>
+	<p></p>
 	<form th:action="@{'/reservein'}" method="post">
-		<label for="start">利用開始日：</label>
+		<label for="start">レンタル開始日：</label>
 		<input type="date" id="start" class="reserve" name="startdate" value="" th:min="${today}" max="2024-07-22" required/>
-		<label for="end">利用終了日：</label>
+		<label for="end">レンタル終了日：</label>
 		<input type="date" id="end" class="reserve" name="enddate" value="" th:min="${today}" max="2024-07-22" required/><br>
 		<label for="car">車の選択：</label>
 		<select name="carid" id="car" class="reserve"  required>

@@ -5,8 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>New User Registed</title>
+<link rel="styleSheet"  th:href="@{css/login/signform.css}" >
 </head>
 <body>
+	<main>
+		<header>
+			<div class="log"><img th:src="@{images/car/logo.png}"></div>
+		</header>
+	<section class="user">
 	<h3>ユーザー登録確認</h3>
 		<table>
 			<tr>
@@ -35,5 +41,8 @@
 			</tr>
 		</table>
 	<a th:href="@{/admin}">管理者メニューへ戻る</a>
+	</section>
+	<footer>team groupC</footer>
+	</main>
 </body>
 </html>

@@ -20,9 +20,7 @@ a{
     text-decoration: none;
     color:black;
 }
-.wrapper{
-    margin: auto 5vw;
-}
+
 /*slide設定*/
 .slide{
 	overflow: hidden;
@@ -152,11 +150,16 @@ header{
     display:flex;
     justify-content: space-between;
     width:30rem;
+    padding-right:200px;
 }
 .nav ul li{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 500;
     text-transform: uppercase;
+}
+button{
+    box-shadow: 0px 1px 5px 4px #7f6c6c;
+    
 }
 .fv{
    
@@ -188,6 +191,9 @@ header{
 	padding-left: -5rem;
 }
 
+.reserve button{
+	margin-top:20px;
+}
 
 /* products */
 .products .contents{

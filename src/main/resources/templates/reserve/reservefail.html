@@ -10,12 +10,12 @@
 	<main>
 		<section class="fv">
 			<header class="wrapper">
-				<div class="log">レンタカー</div>
+				 <div class="log"><img th:src="@{images/car/logo.png}"></div>
 				<div class="nav">
 					<ul>
 						<li>ようこそ 　[[${user.username}]]　様</li>
-						<li><a th:href="@{reserve/price}">Price</a></li>
-						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
+						<li><a th:href="@{price}">Price</a></li>
+						<li><a th:href="@{lineup}">Lineup</a></li>
 						 <li> <form th:action="@{'/logout'}" method="post">
 					<button>ログアウト</button>
 					</form></li>	
@@ -24,14 +24,18 @@
 			</header>
 		</section>	
 		<!--奥井さん作成-->
+<section class="reservefail">
 	<font size="4" color="red">ご希望の日程、車で予約することができませんでした。</font><br>
 	<font size="4" color="red">現在のご希望の日程で予約可能な車を検索するか、ご希望の車が予約可能な日程を検索することができます。</font><br>
 	<font size="4" color="red">又は、予約画面に戻り、再度御予約をお願いします。</font><br>
 	<form th:action="@{'/reserve'}" method="get">
 	 	<input type="submit" name="reservefail" value="予約画面に戻る" />
 	</form>
+	</section>
 	<!--ここまで-->
 	 <footer>team groupC</footer>
+	
 	</main>
+	
 </body>
 </html>
