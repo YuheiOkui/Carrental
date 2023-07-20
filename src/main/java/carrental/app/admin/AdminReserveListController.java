@@ -1,4 +1,4 @@
- package carrental.app.admin;
+                                                                                                                                                                                                                       package carrental.app.admin;
 
 import java.util.List;
 
@@ -27,6 +27,7 @@ List<Reserve> reservelist =reserveService.findAllReserve();
 model.addAttribute("reservelist", reservelist);
 return "admin/reservelist";
 }
+
  
 @GetMapping("admin/reserveedit")
 String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm ReserveEditForm, Model model){
@@ -68,6 +69,9 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		if (reserve.getCarid() != reserveEditForm.getCarid()) {
 			reserve.setCarid(reserveEditForm.getCarid());
 		}
+//		if (reserve.getCarname() != reserveEditForm.getCarname()) {
+//			reserve.setCarname(reserveEditForm.getCarname());
+//		}
 		if (reserve.isEnableflag() != reserveEditForm.isEnableflag()) {
 			reserve.setEnableflag(reserveEditForm.isEnableflag());
 		}
@@ -75,8 +79,7 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		model.addAttribute("reserve", reserve);
 		model.addAttribute("username", reserve.getUser().getUsername());
 		model.addAttribute("car", reserve.getCar());
-		return "admin/reserveeditconf";
-
-	} 
-
+		return "redirect:admin/reserveeditconf";
+	}
+ 
 }

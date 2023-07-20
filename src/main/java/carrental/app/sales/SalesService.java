@@ -58,6 +58,9 @@ public class SalesService {
         return salesRepository.findAll();
     }
     
+    public Integer findTotalAmount() {
+        return salesRepository.getTotalAmount();
+    }
     
 //    public int calculateTotalAmount() {
 //        List<Sales> salesList = salesRepository.findAll();

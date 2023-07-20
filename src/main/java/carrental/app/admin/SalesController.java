@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import carrental.CustomThymeleafFunctions;
 import carrental.app.sales.SalesService;
 import carrental.domain.model.Sales;
 
@@ -15,6 +16,9 @@ public class SalesController {
 	
 	@Autowired
 	SalesService salesService;
+	
+	@Autowired
+	CustomThymeleafFunctions customThymeleafFunctions;
 	
 //	@GetMapping("admin/reserve")
 //	String reserve(Model model) {
@@ -26,7 +30,11 @@ public class SalesController {
 	public String saleslist(Model model) {
 		List<Sales> saleslist =  salesService.findAllSales();
 		model.addAttribute("saleslist", saleslist);
+		model.addAttribute("custom", customThymeleafFunctions);
+		model.addAttribute("total", salesService.findTotalAmount());
 		return "admin/saleslist";
 	}
+	
+	
 	
 }

@@ -33,7 +33,7 @@ public class Sales {
 	@ManyToOne
 	@JoinColumn(name="fullnameid", insertable=false, updatable=false)
 	private User user;
-	private LocalDateTime reserveTime;
+	private LocalDateTime reservetime;
 	private LocalDate salesdate;
 	private Integer amount;
 	

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:custom="http://www.localhost:8080/admin/saleslist">
 <head>
 <meta charset="UTF-8">
 <title>SalesList</title>
@@ -27,7 +27,7 @@
 			<td th:text="${sales.carid}" style="text-align:center"></td>	
 			<td th:text="|${sales.car.cartype} ${sales.car.maker} ${sales.car.carname} ${sales.car.passengers}人乗り|" style="text-align:center"></td>
 			<td th:text="|${sales.car.carprice}円|" style="text-align:center"></td>
-			<td th:text="${#temporals.until(rend, rstart).days + 1}" style="text-align:center"></td>
+			<td th:text="${custom.getDaysDifferencePlusOne(rstart, rend)}" style="text-align:center"></td>
 			<td th:text="${sales.amount}" style="text-align:center"></td>
 				
 			<td>
@@ -38,5 +38,7 @@
 			</td>
 		</tr>
 	</table>
+	<label for="total">合計売上：</label>
+	<input type="text" id="total" name="total" th:value="|${total}円|" th:readonly="true"/>
 </body>
 </html>
