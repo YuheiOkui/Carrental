@@ -1,4 +1,4 @@
-package carrental.app.reserve;
+package carrental.app.admin;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,14 +10,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 予約内容のフォーム
- * @author 奥井
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReserveForm {
+public class SalesEditForm {
+	@NotNull
+	private Integer salesid;
 	@NotNull
 	@FutureOrPresent
 	private LocalDate startdate;
@@ -25,11 +23,15 @@ public class ReserveForm {
 	@FutureOrPresent
 	private LocalDate enddate;
 	@NotNull
-	private Integer carid;
+	private Integer carid;	
 	@Size(min=2,max=20)
 	private String fullnameid;
 	private LocalDateTime reservetime;
 	@NotNull
+	@FutureOrPresent
+	private LocalDate salesdate;
+	@NotNull
 	private Integer amount;
+	private boolean enableflag;
+	}
 	
-}

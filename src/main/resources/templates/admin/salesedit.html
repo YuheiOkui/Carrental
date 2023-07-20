@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:custom="http://www.localhost:8080/admin/salesedit">
+<head>
+<meta charset="UTF-8">
+<title>SalesEdit</title>
+</head>
+<body>
+	<h3>売上管理編集</h3>
+	
+	<button><a th:href="@{'/admin/saleslist'}">売上管理一覧に戻る</a></button>
+	<form th:action="@{/admin/saleseditconf}" method="post" th:object="${sales}">
+	  <table　th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate}">
+		<tr>
+			<td>予約日時：</td>
+			<td>
+					<input type="text" name="rtime" th:value="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" size="50" style="text-align:center" th:readonly="true" required />
+					<span th:errors="*{reservetime}" style="color:red"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>ユーザーID：</td>
+			<td>
+					<input type="text" name="fullnameId" th:value="${sales.fullnameid}" size="50" style="text-align:center"  required />
+					<span th:errors="*{fullnameid}" style="color:red"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>ユーザー名：</td>
+			<td>
+					<input type="text" name="username" th:value="${sales.user.username}" size="50" style="text-align:center" th:readonly="true" required />
+					<span th:errors="*{user.username}" style="color:red"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>車両ID：</td>
+			<td>
+					<input type="text" name="carid" th:value="${sales.carid}" size="50" style="text-align:center"  required />
+					<span th:errors="*{carid}" style="color:red"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>車種：</td>
+			<td>
+					<input type="text" name="carinfo" th:value="|${sales.car.cartype} ${sales.car.maker} ${sales.car.carname} ${sales.car.passengers}人乗り|" size="50" style="text-align:center" th:readonly="true" required />
+			</td>
+		</tr>
+		<tr>
+			<td>料金：</td>
+			<td>
+					<input type="text" name="carprice" th:value="|${sales.car.carprice}円|" size="50" style="text-align:center" th:readonly="true" required />
+					<span th:errors="*{car.carprice}" style="color:red"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>日数：</td>
+			<td>
+					<input type="text" name="days" th:value="${custom.getDaysDifferencePlusOne(rstart, rend)}" size="50" style="text-align:center" th:readonly="true" required />
+			</td>
+		</tr>
+		<tr>
+			<td>売上合計：</td>
+			<td>
+					<input type="text" name="amount" th:value="|${sales.amount}円|" size="50" style="text-align:center"  required />
+					<span th:errors="*{amount}" style="color:red"></span>
+			</td>
+		</tr> 
+	  </table>
+	  <button type="submit">登録</button>
+	</form>
+	
+</body>
+</html>
