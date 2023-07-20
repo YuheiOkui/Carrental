@@ -10,10 +10,10 @@
 	<main>
 		<section class="fv">
 			<header class="wrapper">
-				<div class="log">レンタカー</div>
+				   <div class="log"><img th:src="@{images/car/logo.png}"></div>
 				<div class="nav">
 					<ul>
-						<li>ようこそ 　[[${user.username}]]　様</li>
+						<li>ようこそ  [[${user.username}]]様</li>
 						<li><a th:href="@{reserve/price}">Price</a></li>
 						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
 						 <li> <form th:action="@{'/logout'}" method="post">
@@ -24,12 +24,11 @@
 		
 			</header>
 		</section>	
-	
+<section class="reserve">	
 	<h3>予約確認画面</h3>
-	<h4>予約内容に間違いがなければ、予約申し込みボタンを押して予約を完了してください。</h4>
 	<form th:action="@{'/reserved'}" method="post" th:object="${reserveForm}">
 		<table border="1">
-			<tr>
+		<tr>
 				<th>フルネームID</th>
 				<th>予約日時</th>
 				<th>レンタル開始日</th>
@@ -57,7 +56,9 @@
 				<input type="submit" name="reserved" value="予約申し込み" />
 		</div>
 	</form>
+	 </section>
 	 <footer>team groupC</footer>
+	
 	</main>
 </body>
 </html>

@@ -72,6 +72,7 @@ public class ReserveController {
 												  carService.findItem(reserveSearchForm.getCarid()).getCarprice() * (reserveSearchForm.getEnddate().compareTo(reserveSearchForm.getStartdate()) + 1));
 		model.addAttribute("reserveForm", reserveForm);
 		model.addAttribute("car", carService.findItem(reserveForm.getCarid()));
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reserveconf";
 	}
 	
@@ -85,6 +86,7 @@ public class ReserveController {
 				  reserveForm.getCarid(), reserveForm.getFullnameid(),
 				  reserveForm.getReservetime(),reserveForm.getAmount());
 		reserveService.save(reserve);
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reservecpl";
 	}
 	
@@ -92,12 +94,14 @@ public class ReserveController {
 	String reservation(Model model) {
 		List<Reserve> reservation = reserveService.findReserveUser(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId());
 		model.addAttribute("reservation", reservation);
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reservation";
 	}
 	
 	@GetMapping("reservecancel")
 	String reservecancel(@RequestParam("reserveid") Integer reserveid, Model model) {
 		reserveService.deleteReserve(reserveid);
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reservecancelcpl";
 	}
 	
@@ -106,6 +110,7 @@ public class ReserveController {
 		Reserve reserve = reserveService.findReserve(reserveid).get();
 		model.addAttribute("car", carService.findItem(reserve.getCarid()));
 		model.addAttribute("reserve", reserve);
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reserveextension";
 	}
 	
@@ -121,6 +126,7 @@ public class ReserveController {
 				model.addAttribute("car", carService.findItem(reserve.getCarid()));
 				model.addAttribute("reserve", reserve);
 				model.addAttribute("error", true);
+				model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 				return "reserve/reserveextension";
 			}
 		} 
@@ -130,6 +136,7 @@ public class ReserveController {
 		reserveService.save(reserve);
 		model.addAttribute("car", carService.findItem(reserve.getCarid()));
 		model.addAttribute("reserve", reserve);
+		model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 		return "reserve/reserveextensioncpl";
 	}
 	

@@ -8,10 +8,10 @@
 <body>
 	<section class="fv">
 	<header class="wrapper">
-            <div class="log">レンタカー</div>
+           <div class="log"><img th:src="@{images/car/logo.png}"></div>
             <div class="nav">
                 <ul>
-					<li>ようこそ  [[${user.username}]]　様</li>
+					<li>ようこそ　　[[${user.username}]]　様</li>
                     <li><a th:href="@{price}">Price</a></li>
                     <li><a th:href="@{lineup}">Lineup</a></li>
                    	<li> <form th:action="@{'/logout'}" method="post">
@@ -21,6 +21,7 @@
             </div>
         </header>
 	</section>
+<section class="price">
 	<table border="1">
 		<h1>価格一覧</h1>
 	<tr>
@@ -34,9 +35,9 @@
 		<td th:text="${car.cartype}"></td>
 	</tr>
 	</table>
-	<p></p>
 	
 	<button><a th:href="@{/reserve}">前のページへもどる</a></button>
+</section>
 	 <footer>team groupC</footer>
 </body>
 </html>
