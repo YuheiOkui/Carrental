@@ -3,8 +3,9 @@ html{
     font-size: 0.625em;
 }
 body{
+	width:100%;
     color: black;
-    
+   
     line-height: 1.7;
     font-size: 1.4(em);
     font-family: Arial, Helvetica, sans-serif;
@@ -22,10 +23,13 @@ a{
     margin: auto 5vw;
 }
 /*slide設定*/
+.slide{
+	overflow: hidden;
+}
 
  .loop_wrap{
     position:relative;
-    display: -webkit-flex;
+/*    display: -webkit-flex;*/
     display: flex;
     width:100vw;
     height:300px;
@@ -35,20 +39,36 @@ a{
     width:auto;
     max-width: fit-content;
     height:100%;
+    	
+    	
     will-change: transform;
 }
 .loop_wrap img:first-child{
-    -webkit-animation: loop 100s -50s linear infinite;
-    animation:loop 100s -50s linear infinite;
+	
+	
+    -webkit-animation: loop 60s -30s linear infinite;
+    animation:loop 60s -30s linear infinite;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     will-change: transform;
+    
+}
+
+.loop_wrap img:last-child{
+	
+	 
+    -webkit-animation: loop2  60s linear infinite;
+    animation:loop2 60s linear infinite;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+   
 }
 
 .loop_wrap img + img{
   
-    -webkit-animation:loop2 100s linear infinite;
-    animation:loop2 100s linear infinite;
+    -webkit-animation:loop2 60s linear infinite;
+    animation:loop2 60s linear infinite;
 }   
 
  @keyframes loop{
@@ -64,25 +84,15 @@ a{
 }  
      @keyframes loop2{
         0%{
-            -webkit-transform:translateX(0);
-            -ms-transform: translateX(0);
-            transform: translateX(0);
+            -webkit-transform:translateX(0%);
+            -ms-transform: translateX(0%);
+            transform: translateX(0%);
         }to{
             -webkit-transform:translateX(-200%);
             -ms-transform: translateX(-200%);
             transform: translateX(-200%);
         }
     } 
-    @media (min-width: 900px){
-        .loop-wrap{
-            height:266px;
-        }
-        .loop-wrap img{
-            width:auto;
-            max-width:fit-content;
-            height:100%;
-        }
-    }  
 
 
 
@@ -126,6 +136,7 @@ header{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 500;
 }
+
 .nav ul{
     display:flex;
     justify-content: space-between;
@@ -137,7 +148,7 @@ header{
     text-transform: uppercase;
 }
 .fv{
-    background-image: url(../images/harinezumi.jpg);
+   
     min-height: 25vh;
     background-size: cover;
     background-position: center-top;
@@ -145,19 +156,6 @@ header{
 
     position: relative;
    
-}
-.keymsgs{
-    position: absolute;
-    right: 3vw;
-    bottom: 3vw;
-}
-.keymsg{
-    font-size: 2rem;
-    font-weight:600;
-    padding: 0.3em 0.5em;
-     color:black;
-    background-color:transparent;
-
 }
 
 /*reserve*/

@@ -53,9 +53,13 @@ button{
     box-shadow: 0px 1px 5px 4px #7f6c6c;
     
 }
-.fv{
-    border-top:5px blue solid;
-    border-bottom: 5px blue solid;
+.fv{ 
+	min-height: 25vh;
+    background-size: cover;
+    background-position: center-top;
+    background-repeat: no-repeat;
+
+    position: relative;
 }
 
 footer{

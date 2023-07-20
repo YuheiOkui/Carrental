@@ -27,7 +27,6 @@ List<Reserve> reservelist =reserveService.findAllReserve();
 model.addAttribute("reservelist", reservelist);
 return "admin/reservelist";
 }
-
  
 @GetMapping("admin/reserveedit")
 String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm ReserveEditForm, Model model){
@@ -44,6 +43,7 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		model.addAttribute("ReserveEditForm", ReserveEditForm);
 		return "admin/reserveedit";
 	}
+
  @PostMapping("admin/reserveeditconf")   
 	String reserveeditconf(@ModelAttribute("reserveEditForm") @Validated ReserveEditForm reserveEditForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {
@@ -81,4 +81,5 @@ String reserveedit(@RequestParam("reserveid") Integer reserveid, ReserveEditForm
 		return "admin/reserveeditconf";
 	}
  
+
 }

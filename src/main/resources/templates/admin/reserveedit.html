@@ -7,7 +7,9 @@
 <body>
 	<h3>予約一覧編集</h3>
 	<a th:href="@{/admin/reservelist}" >予約一覧にもどる</a>
+
 	<form th:action="@{/admin/reserveeditconf}" method="post" th:object="${ReserveEditForm}">
+
 		<table>
 			<tr>
 				<td>予約ID</td>

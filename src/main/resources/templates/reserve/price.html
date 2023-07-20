@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Price ALL</title>
+<link  rel="styleSheet"th:href="@{css/price.css}">
 </head>
 <body>
+	<section class="fv">
 	<header class="wrapper">
             <div class="log">レンタカー</div>
             <div class="nav">
                 <ul>
-                    <li><a th:href="@{reserve/price}">Price</a></li>
-                    <li><a th:href="@{reserve.lineup}">Lineup</a></li>
-                   <li> <form th:action="@{'/logout'}" method="post">
+					<li>ようこそ  [[${user.username}]]　様</li>
+                    <li><a th:href="@{price}">Price</a></li>
+                    <li><a th:href="@{lineup}">Lineup</a></li>
+                   	<li> <form th:action="@{'/logout'}" method="post">
 					<button>ログアウト</button>
 					</form></li>
                 </ul>
             </div>
         </header>
-	<button><a th:href="@{/reserve}">前のページへもどる</a></button>
+	</section>
 	<table border="1">
 		<h1>価格一覧</h1>
 	<tr>
@@ -31,6 +34,9 @@
 		<td th:text="${car.cartype}"></td>
 	</tr>
 	</table>
+	<p></p>
+	
+	<button><a th:href="@{/reserve}">前のページへもどる</a></button>
 	 <footer>team groupC</footer>
 </body>
 </html>
