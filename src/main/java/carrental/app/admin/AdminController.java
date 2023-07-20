@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import carrental.domain.model.Car;
 import carrental.domain.service.car.CarService;
 /**
- * admincontroller セールスリストは未作成の為コメントアウトしています。
+ * admincontroller 
  * @author 飯田
  */
 @Controller
@@ -50,7 +50,7 @@ public class AdminController {
 		model.addAttribute("carEditForm", carEditForm);
 		return "admin/carlistedit";
 	}
-										// admin に careditconfをつくる
+										// admin に careditconfを作成
 	@PostMapping("admin/carlisteditconf")   // 編集画面で書き換えたデータをもとに入力チェック
 	String careditconf(@ModelAttribute("carEditForm") @Validated CarEditForm carEditForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {
@@ -80,17 +80,7 @@ public class AdminController {
 		}
 		carService.carregist(car);
 		return "admin/carlisteditconf";
-	}
-	
-//	セールス
-//	@GetMapping("admin/saleslist/sarch")
-//	String serch(@ModelAttribute("serchForm") @Validated SearchForm serchForm, BindingResult br, Model model) {
-//		if(br.hasErrors()) {
-//			return "admin/saleslist";
-//		}
-//		salesForm.setSalesList(salesService.findSalesAll());
-//		return "admin/salesList";
-	
+	}	
 }
 
 

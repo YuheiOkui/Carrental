@@ -3,6 +3,7 @@ package carrental.app.admin;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,14 +12,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReserveEditForm {
-	
-	
+			
 		private Integer reserveid;
 		private LocalDateTime reservetime;
+		@Size(min=2,max=20)
 		private String fullnameid;
+		@Size(min=1,max=20)
 		private String username;
+		@FutureOrPresent
 		private LocalDate startdate;
+		@FutureOrPresent
 		private LocalDate enddate;
+		@Size(min=2,max=20)
 		private Integer carid;
 		@Size(min=1, max=52)
 		private String carname;

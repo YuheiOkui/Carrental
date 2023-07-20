@@ -43,6 +43,7 @@ public class WebSecurityConfig {
 						.requestMatchers("/").permitAll()
 						.requestMatchers("/reserve").permitAll()
 						.requestMatchers("/signup").permitAll()
+						.requestMatchers("/audio/**").permitAll()
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						.anyRequest().authenticated());
 		
