@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <!--ログイン画面作成　Tanaka-->
+
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-	<meta charset="UTF-8">
-	<title>ログイン</title>
+<meta charset="UTF-8">
+<title>ログイン</title>
+<link rel="styleSheet"  th:href="@{css/login/loginform.css}" >
 </head>
-
 <body>
 
+	<main>
+	<header>
+		<div class="log"><img th:src="@{images/car/logo.png}"></div>
+		</header>
+	<section class="login">
 	<h2>KITOレンタカー　ログインフォーム</h2>
 	<p th:if="${param.error}">
 		ログインエラーです
 	</p>
 	<form th:action="@{/login}" method="post">
-		<table>
+		<table >
 			<tr>
 				<td><label for="fullnameId">フルネーム:</label></td>
 				<td> <input type="text" id="fullnameId" name="username" required></td>
@@ -30,6 +35,9 @@
 		</table>
 	</form>
 	<a th:href="@{/signup}"><b>ユーザ新規登録</b></a>
+		</section>
+		<footer>team groupC</footer>
+	</main>
 </body>
 
 </html>
