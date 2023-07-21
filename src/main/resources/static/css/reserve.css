@@ -244,10 +244,7 @@ button{
    
 } 
 /*ranking*/
-.ranking-item{
-    width: 250px;
-    position:relative;
-}
+
 .ranking-item img{
     width: 100%;
    
@@ -263,27 +260,29 @@ button{
     width:45px;
 }
 .ranknumber img{
-    width:500%;
+    width:150%;
 }
 
 .slider{
     display: flex;
-    background-color: aliceblue;    
-    margin:0 auto;
+    background-color:cornflowerblue;    
+    
     height:100%;
-    width:100%;
+   
 }
  .ranking-item{
     height:auto;
     margin:0.2%;
     width: 24%;
-}
-.ranking-item img{
-    display: block;
-    height:auto;
-    width:100%;
+    position:relative;
     
 }
+/*.ranking-item img{*/
+/*    display: block;*/
+/*    height:auto;*/
+/*    width:100%;*/
+    
+/*}*/
 .ranking-item name{
     font-weight:bold;
     padding:10px;
@@ -299,6 +298,7 @@ button{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left:100px;
 }
 .location .infomation div{
     display: flex;
@@ -312,6 +312,7 @@ button{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 10px;
     text-transform: uppercase;
+    
 
 }
 .location h2{
@@ -323,6 +324,9 @@ button{
 	display:block;
 	font-size:200;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.location .map{
+	padding-right:200px;
 }
 .time div{
 display:flex;
