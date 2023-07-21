@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:custom="http://www.localhost:8080/admin/salesditconf">
+<head>
+<meta charset="UTF-8">
+<title>SalesEditConf</title>
+
+</head>
+<body th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate}">
+	<a th:href="@{/admin/saleslist}" >予約一覧にもどる</a>
+		<table>
+<!--			<tr>-->
+<!--				<td>売上ID：</td>-->
+<!--				<td><span th:text="${sales.salesid}"></span></td>	-->
+<!--			</tr>-->
+			<tr>
+				<td>予約日時：</td>
+				<td><span th:text="${sales.reservetime}"></span></td>	
+			</tr>
+			<tr>
+				<td>ユーザーID：</td>
+				<td><span th:text="${sales.fullnameid}"></span></td>	
+			</tr>
+			<tr>
+				<td>ユーザー名：</td>
+				<td><span th:text="${sales.user.username}"></span></td>	
+			</tr>
+			<tr>
+				<td>ユーザー名：</td>
+				<td><span th:text="${sales.user.username}"></span></td>	
+			</tr>
+			<tr>
+				<td>車両ID：</td>
+				<td><span th:text="${sales.carid}"></span></td>	
+			</tr>
+			<tr>
+				<td>車種：</td>
+				<td><span th:text="|${sales.car.cartype} ${sales.car.maker} ${sales.car.carname} ${sales.car.passengers}人乗り|"></span></td>	
+			</tr>
+			<tr>
+				<td>料金：</td>
+				<td><span th:text="|${sales.car.carprice}円|"></span></td>	
+			</tr>
+			<tr>
+				<td>日数：</td>
+				<td><span th:text="${custom.getDaysDifferencePlusOne(rstart, rend)}" ></span></td>	
+			</tr>
+			<tr>
+				<td>売上合計：</td>
+				<td><span th:text="|${sales.amount}円|"></span></td>	
+			</tr>
+			<h3>変更完了しました</h3>
+
+		</table>
+	</body>
+</html>

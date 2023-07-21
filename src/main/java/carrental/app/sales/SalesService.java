@@ -39,7 +39,7 @@ public class SalesService {
 //        salesRepository.save(sales);
 //    }
 	public void save(Sales sales) {
-		salesRepository.save(sales);
+		salesRepository.saveAndFlush(sales);
 	}
 	
 	public Optional<Sales> findReserve(Integer salesid) {

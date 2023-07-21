@@ -8,8 +8,8 @@
 	<h3>売上管理編集</h3>
 	
 	<button><a th:href="@{'/admin/saleslist'}">売上管理一覧に戻る</a></button>
-	<form th:action="@{/admin/saleseditconf}" method="post" th:object="${sales}">
-	  <table　th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate}">
+	<form th:action="@{/admin/saleseditconf}" method="post" th:object="${sales}" th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate}">
+	  <table>
 		<tr>
 			<td>予約日時：</td>
 			<td>

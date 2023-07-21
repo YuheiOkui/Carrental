@@ -108,6 +108,7 @@ public class SalesController {
 			model.addAttribute("sales", sales);
 //			model.addAttribute("username", reserve.getUser().getUsername());
 //			model.addAttribute("car", reserve.getCar());
+			model.addAttribute("custom", customThymeleafFunctions);
 			return "admin/saleseditconf";
 		}
 	
