@@ -59,7 +59,7 @@
 				<label for="end">延長後のレンタル終了日：</label>
 		   	    <input type="date" id="end" class="extension" name="endafter" value="" th:min="${rend}" max="2024-07-22" required/><br>
 		   	    <p th:if="${error}">
-		   	     予約の延長ができませんでした。日程を変更してください。
+		   	     <font size="4" color="red">予約の延長ができませんでした。日程を変更してください。</font>
 		   	    </p>
 				<button><a th:href="@{'/reservation'}">戻る</a></button>
 				<input type="submit" name="reserveextension" value="延長申し込み" />
