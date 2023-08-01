@@ -3,8 +3,8 @@ package carrental.app.admin;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +17,10 @@ public class SalesEditForm {
 	@NotNull
 	private Integer salesid;
 	@NotNull
-	@FutureOrPresent
+	@PastOrPresent
 	private LocalDate startdate;
 	@NotNull
-	@FutureOrPresent
+	@PastOrPresent
 	private LocalDate enddate;
 	@NotNull
 	private Integer carid;	
@@ -28,7 +28,7 @@ public class SalesEditForm {
 	private String fullnameid;
 	private LocalDateTime reservetime;
 	@NotNull
-	@FutureOrPresent
+	@PastOrPresent
 	private LocalDate salesdate;
 	@NotNull
 	private Integer amount;

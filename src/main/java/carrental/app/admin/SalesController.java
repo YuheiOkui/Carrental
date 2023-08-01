@@ -59,11 +59,11 @@ public class SalesController {
 				reserveService.deleteReserve(reserve.getReserveid());
 			}
 		}
-		List<Sales> saleslist =  salesService.findAllSales();
-		model.addAttribute("saleslist", saleslist);
-		model.addAttribute("custom", customThymeleafFunctions);
-		model.addAttribute("total", salesService.findTotalAmount());
-		return "admin/saleslist";
+//		List<Sales> saleslist =  salesService.findAllSales();
+//		model.addAttribute("saleslist", saleslist);
+//		model.addAttribute("custom", customThymeleafFunctions);
+//		model.addAttribute("total", salesService.findTotalAmount());
+		return "redirect:/admin/saleslist";
 	}
 	
 	@GetMapping("admin/salesedit")
@@ -77,6 +77,9 @@ public class SalesController {
 	@PostMapping("admin/saleseditconf")
 	public String saleseditconf(@Validated SalesEditForm salesEditForm, BindingResult br, Model model){
 			if (br.hasErrors()) {
+				Sales sales = salesService.findReserve(salesEditForm.getSalesid()).get();
+				model.addAttribute("sales", sales);
+				model.addAttribute("custom", customThymeleafFunctions);
 				return "admin/salesedit";
 			}
 			Sales sales = salesService.findReserve(salesEditForm.getSalesid()).get();   

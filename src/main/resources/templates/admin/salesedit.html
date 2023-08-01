@@ -13,14 +13,15 @@
 		<tr>
 			<td>予約日時：</td>
 			<td>
-					<input type="text" name="rtime" th:value="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" size="50" style="text-align:center" th:readonly="true" required />
+					<input type="hidden" name="reservetime" th:value="${sales.reservetime}">
+ 					<input type="text" name="rtime" th:value="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" size="50" style="text-align:center" th:readonly="true" required />
 					<span th:errors="*{reservetime}" style="color:red"></span>
 			</td>
 		</tr>
 		<tr>
 			<td>ユーザーID：</td>
 			<td>
-					<input type="text" name="fullnameId" th:value="${sales.fullnameid}" size="50" style="text-align:center"  required />
+					<input type="text" name="fullnameid" th:value="${sales.fullnameid}" size="50" style="text-align:center"  required />
 					<span th:errors="*{fullnameid}" style="color:red"></span>
 			</td>
 		</tr>
