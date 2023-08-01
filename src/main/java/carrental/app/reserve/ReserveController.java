@@ -49,7 +49,6 @@ public class ReserveController {
 	String reservein(@Validated ReserveSearchForm reserveSearchForm, BindingResult br, Model model) {
 			if (br.hasErrors()) {
 				model.addAttribute("carList",carService.findCars());
-				model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 				return "reserve/reserve";//エラーメッセージ必要？
 		}
 		List<Reserve> allreserve = reserveService.findReserveCar(reserveSearchForm.getCarid());
@@ -62,7 +61,6 @@ public class ReserveController {
 				reserveSearchForm.getEnddate().isEqual(list.getEnddate()) || 
 				(list.getStartdate().isAfter(reserveSearchForm.getStartdate()) && list.getStartdate().isBefore(reserveSearchForm.getEnddate())) ||
 				(list.getEnddate().isAfter(reserveSearchForm.getStartdate()) && list.getEnddate().isBefore(reserveSearchForm.getEnddate()))) {
-				model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 				return "reserve/reservefail";
 			}
 		} 
@@ -82,7 +80,6 @@ public class ReserveController {
 	String reserved(@Validated ReserveForm reserveForm, BindingResult br, Model model) {
 		if (br.hasErrors()) {
 			model.addAttribute("carList",carService.findCars());
-			model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 			return "reserve/reserve";//エラーメッセージ必要？
 		}
 		Reserve reserve = new Reserve(reserveForm.getStartdate(), reserveForm.getEnddate(),

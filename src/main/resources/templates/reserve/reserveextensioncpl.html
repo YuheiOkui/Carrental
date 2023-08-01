@@ -12,12 +12,12 @@
 	<main>
 		<section class="fv">
 			<header class="wrapper">
-			<div class="log"><img th:src="@{images/car/logo.png}"></div>
+				<div class="log">レンタカー</div>
 				<div class="nav">
 					<ul>
 						<li>ようこそ 　[[${user.username}]]　様</li>
-						<li><a th:href="@{price}">Price</a></li>
-						<li><a th:href="@{lineup}">Lineup</a></li>
+						<li><a th:href="@{reserve/price}">Price</a></li>
+						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
 						 <li> <form th:action="@{'/logout'}" method="post">
 					<button>ログアウト</button>
 					</form></li>
@@ -26,7 +26,6 @@
 			</header>
 		</section>	
 	<!--奥井さん作成-->
-	<section class="reserveextensioncpl">
 	<h3>KITOレンタカー　予約延長完了画面</h3>
 	<h4>以下の内容で予約の変更が完了しました。</h4>
 	<h4>変更後の予約内容</h4>
@@ -52,7 +51,6 @@
 				<button><a th:href="@{'/reservation'}">戻る</a></button>
 		</div>
 	</form>
-	</section>
 	<!--ここまで-->
 	 <footer>team groupC</footer>
 	</main>

@@ -20,7 +20,9 @@ a{
     text-decoration: none;
     color:black;
 }
-
+.wrapper{
+    margin: auto 5vw;
+}
 /*slide設定*/
 .slide{
 	overflow: hidden;
@@ -150,16 +152,11 @@ header{
     display:flex;
     justify-content: space-between;
     width:30rem;
-    padding-right:200px;
 }
 .nav ul li{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 500;
     text-transform: uppercase;
-}
-button{
-    box-shadow: 0px 1px 5px 4px #7f6c6c;
-    
 }
 .fv{
    
@@ -191,9 +188,6 @@ button{
 	padding-left: -5rem;
 }
 
-.reserve button{
-	margin-top:20px;
-}
 
 /* products */
 .products .contents{
@@ -244,7 +238,10 @@ button{
    
 } 
 /*ranking*/
-
+.ranking-item{
+    width: 250px;
+    position:relative;
+}
 .ranking-item img{
     width: 100%;
    
@@ -260,29 +257,27 @@ button{
     width:45px;
 }
 .ranknumber img{
-    width:150%;
+    width:500%;
 }
 
 .slider{
     display: flex;
-    background-color:cornflowerblue;    
-    
+    background-color: aliceblue;    
+    margin:0 auto;
     height:100%;
-   
+    width:100%;
 }
  .ranking-item{
     height:auto;
     margin:0.2%;
     width: 24%;
-    position:relative;
+}
+.ranking-item img{
+    display: block;
+    height:auto;
+    width:100%;
     
 }
-/*.ranking-item img{*/
-/*    display: block;*/
-/*    height:auto;*/
-/*    width:100%;*/
-    
-/*}*/
 .ranking-item name{
     font-weight:bold;
     padding:10px;
@@ -298,7 +293,6 @@ button{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left:100px;
 }
 .location .infomation div{
     display: flex;
@@ -312,7 +306,6 @@ button{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 10px;
     text-transform: uppercase;
-    
 
 }
 .location h2{
@@ -324,9 +317,6 @@ button{
 	display:block;
 	font-size:200;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.location .map{
-	padding-right:200px;
 }
 .time div{
 display:flex;

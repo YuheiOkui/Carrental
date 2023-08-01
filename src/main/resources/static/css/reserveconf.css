@@ -9,7 +9,9 @@ body{
     line-height: 1.7;
     font-size: 1.4(em);
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 300; 
+    font-weight: 300;
+    
+   
 }
 
 li{
@@ -58,7 +60,10 @@ header{
     text-transform: uppercase;
 }
 
-
+.cancel {
+    padding-right:200px;
+    padding-left:500px;
+}
 
 button{
     box-shadow: 0px 1px 5px 4px #7f6c6c;
@@ -73,9 +78,7 @@ button{
     position: relative;
 }
 .reserve{
-	height:350px;
-	padding-left:300px;
-	 font-family: Arial, Helvetica, sans-serif;
+	height:300px;
 }
 .reserve button{
 	margin:20px;

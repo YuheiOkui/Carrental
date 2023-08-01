@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -27,8 +26,8 @@
 		<h1>価格一覧</h1>
 	<tr>
 		<th>一日レンタル料金（円）</th>
-		<th>車名</th>
-		<th>カータイプ</th>
+		<th>名前</th>
+		<th>タイプ</th>
 	</tr>
 	<tr th:each ="car : ${carlist}">
 		<td th:text="${car.carprice}"></td>
@@ -36,6 +35,7 @@
 		<td th:text="${car.cartype}"></td>
 	</tr>
 	</table>
+	
 	<button><a th:href="@{/reserve}">前のページへもどる</a></button>
 </section>
 	 <footer>team groupC</footer>

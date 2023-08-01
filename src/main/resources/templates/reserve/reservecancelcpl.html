@@ -12,12 +12,12 @@
 	<main>
 		<section class="fv">
 			<header class="wrapper">
-				 <div class="log"><img th:src="@{images/car/logo.png}"></div>
+				<div class="log">レンタカー</div>
 				<div class="nav">
 					<ul>
-						<li>ようこそ [[${user.username}]]　様</li>
-						<li><a th:href="@{price}">Price</a></li>
-						<li><a th:href="@{lineup}">Lineup</a></li>
+						<li>ようこそ 　[[${user.username}]]　様</li>
+						<li><a th:href="@{reserve/price}">Price</a></li>
+						<li><a th:href="@{reserve/lineup}">Lineup</a></li>
 						 <li> <form th:action="@{'/logout'}" method="post">
 					<button>ログアウト</button>
 					</form></li>
@@ -26,11 +26,9 @@
 			</header>
 		</section>	
 	<!--奥井さん作成ここから-->
-<section class="reservation">
 	<h1>予約をキャンセルしました。</h1>
 	<h1>ご利用ありがとうございました。</h1>
 　　<button><a th:href="@{'reserve'}">予約画面に戻る</a></button>
-	</section>
 	<!--ここまで-->
 	 <footer>team groupC</footer>
 	</main>

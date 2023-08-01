@@ -12,12 +12,12 @@
 	<main>
 		<section class="fv">
 		  <header class="wrapper">
-          	<div class="log"><img th:src="@{images/car/logo.png}"></div>
+            <div class="log">レンタカー</div>
             <div class="nav">
                 <ul>
 					<li>ようこそ  [[${user.username}]]様</li>
-                    <li><a th:href="@{price}">Price</a></li>
-                    <li><a th:href="@{lineup}">Lineup</a></li>
+                    <li><a th:href="@{reserve/price}">Price</a></li>
+                    <li><a th:href="@{reserve.lineup}">Lineup</a></li>
                    <li> <form th:action="@{'/logout'}" method="post">
 					<button>ログアウト</button>
 					</form></li>

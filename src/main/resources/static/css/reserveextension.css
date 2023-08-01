@@ -29,30 +29,11 @@ header{
     display:flex;
     justify-content: space-between;
     align-items: center;
-      border-top:5px blue solid;
-    border-bottom: 5px blue solid;
-    height:100px;
 }
-
-.log{
-	height:200px;
-	
-    font-size: 3.2rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 500;
-}
-.log img{
-	height:200px;
-	
-	padding-left:2em;
-}
-
-
 .nav ul{
     display:flex;
     justify-content: space-between;
     width:30rem;
-      margin-right:150px;
 }
 .nav ul li{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -60,7 +41,10 @@ header{
     text-transform: uppercase;
 }
 
-
+.cancel {
+    padding-right:200px;
+    padding-left:500px;
+}
 
 button{
     box-shadow: 0px 1px 5px 4px #7f6c6c;
@@ -74,16 +58,6 @@ button{
 
     position: relative;
 }
-.reserveextension{
-	height:auto;
-	padding-left:300px;
-	 font-family: Arial, Helvetica, sans-serif;
-}
-
-.reserveextension button{
-	margin:20px;
-}
-
 
 footer{
     display:block;

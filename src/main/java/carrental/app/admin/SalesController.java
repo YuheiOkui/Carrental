@@ -38,7 +38,6 @@ public class SalesController {
 //	}
 	@GetMapping("admin/saleslist")
 	public String saleslist(Model model) {
-
 		List<Sales> saleslist =  salesService.findAllSales();
 		model.addAttribute("saleslist", saleslist);
 		model.addAttribute("custom", customThymeleafFunctions);
@@ -46,6 +45,7 @@ public class SalesController {
 		return "admin/saleslist";
 	}
 	
+
 	@GetMapping("admin/salesupdate")
 	public String salesupdate(Model model) {
 		LocalDate now = LocalDate.now();
@@ -54,7 +54,7 @@ public class SalesController {
 			if (now.isEqual(reserve.getEnddate()) || now.isAfter(reserve.getEnddate())) {
 				Sales sales = new Sales(reserve.getStartdate(),reserve.getEnddate(),
 								reserve.getCarid(), reserve.getFullnameid(), reserve.getReservetime(),
-								reserve.getStartdate(), reserve.getAmount());
+								reserve.getStartdate(), reserve.getAmount(), reserve.isEnableflag());
 				salesService.save(sales);
 				reserveService.deleteReserve(reserve.getReserveid());
 			}
@@ -65,7 +65,8 @@ public class SalesController {
 //		model.addAttribute("total", salesService.findTotalAmount());
 		return "redirect:/admin/saleslist";
 	}
-	
+
+
 	@GetMapping("admin/salesedit")
 	public String salesedit(@RequestParam("salesid") Integer salesid, Model model) {
 		Sales sales = salesService.findReserve(salesid).get();
@@ -114,5 +115,6 @@ public class SalesController {
 			model.addAttribute("custom", customThymeleafFunctions);
 			return "admin/saleseditconf";
 		}
+
 	
 }
