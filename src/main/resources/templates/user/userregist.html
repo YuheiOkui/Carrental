@@ -9,17 +9,17 @@
 </head>
 
 <body>
-	<h3>KITO 新規ユーザ登録</h3>
+	<h3>KITOレンタカー 新規ユーザ登録</h3>
 	<form th:action="@{/signup}" method="post" th:object="${signupForm}">
 		<div th:if="${signupError}">
 			<div th:text="${signupError}"></div>
 		</div>
 
-		<label for="fullnameId">フルネーム：</label>
+		<label for="fullnameId">フルネームID：</label>
 		<input type="text" id="fullnameId" name="fullnameId" th:value="${signupForm.fullnameId}">
 		<span th:errors="${signupForm.fullnameId}"></span><br>
 
-		<label for="username">ユーザ名　　：</label>
+		<label for="username">ユーザー名　：</label>
 		<input type="text" id="username" name="username" th:value="${signupForm.username}">
 		<span th:errors="${signupForm.username}"></span><br>
 		<label for="password">パスワード　：</label>

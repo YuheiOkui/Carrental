@@ -8,9 +8,12 @@
 	<h3>売上管理一覧</h3>
 	
 	<button><a th:href="@{'/admin'}">管理者メニューに戻る</a></button>
+	<button><a th:href="@{'/admin/salesupdate'}">更新</a></button>
 	<table border="1">
 		<tr>
+			<th>売上ID</th>
 			<th>予約日時</th>
+			<th>売上日時</th>
 			<th>ユーザーID</th>
 			<th>ユーザー名</th>
 			<th>車両ID</th>
@@ -18,10 +21,13 @@
 			<th>料金</th>
 			<th>日数</th>
 			<th>売上合計</th>
+			<th>無効フラグ</th>
 			<th>編集</th>
 		</tr> 
-		<tr th:each="sales : ${saleslist}" th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate}">
+		<tr th:each="sales : ${saleslist}" th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate},stime=${sales.salesdate}">
+			<td th:text="${sales.salesid}" style="text-align:center"></td>
 			<td th:text="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" style="text-align:center"></td>
+			<td th:text="${#temporals.format(stime, 'yyyy年MM月dd日')}" style="text-align:center"></td>
 			<td th:text="${sales.fullnameid}" style="text-align:center"></td>
 			<td th:text="${sales.user.username}" style="text-align:center"></td>
 			<td th:text="${sales.carid}" style="text-align:center"></td>	
@@ -29,6 +35,7 @@
 			<td th:text="|${sales.car.carprice}円|" style="text-align:center"></td>
 			<td th:text="${custom.getDaysDifferencePlusOne(rstart, rend)}" style="text-align:center"></td>
 			<td th:text="${sales.amount}" style="text-align:center"></td>
+			<td th:text="${sales.enableflag}" style="text-align:center"></td>
 				
 			<td>
 			<form th:action="@{/admin/salesedit}" method="get">

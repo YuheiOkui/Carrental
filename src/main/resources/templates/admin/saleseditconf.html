@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:custom="http://www.localhost:8080/admin/saleseditconf">
+<head>
+<meta charset="UTF-8">
+<title>Sales Editconf</title>
+</head>
+<body>
+	<h3>売上情報編集</h3>
+	<a th:href="@{/admin/saleslist}">売上一覧へ戻る</a>
+		<table　th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate},stime=${sales.salesdate}">
+			<tr>
+				<td>売上ID：</td>
+				<td><span th:text="${sales.salesid}" style="text-align:center"></span></td>				
+			</tr>
+			<tr>
+				<td>予約日時：</td>
+				<td><span th:text="${#temporals.format(rtime, 'yyyy年MM月dd日HH時mm分ss秒')}" style="text-align:center"></span></td>
+			</tr>
+			<tr>
+				<td>売上日時：</td>
+				<td><span th:text="${#temporals.format(stime, 'yyyy年MM月dd日')}" style="text-align:center"></span></td>
+			</tr>
+			<tr>
+				<td>ユーザーID：</td>
+				<td><span th:text="${sales.fullnameid}" style="text-align:center"></span></td>
+			</tr>
+			<tr>
+				<td>ユーザー名：</td>
+				<td><span th:text="${sales.user.username}" style="text-align:center"></span></td>
+			</tr>
+			<tr>
+				<td>車両ID：</td>
+				<td><span th:text="${sales.carid}" style="text-align:center"></span></td>
+			</tr>
+			<tr>
+				<td>車種：</td>
+				<td><sapn th:text="|${sales.car.cartype} ${sales.car.maker} ${sales.car.carname} ${sales.car.passengers}人乗り|" style="text-align:center"></sapn></td>
+			</tr>
+			<tr>
+				<td>料金：</td>
+				<td><sapn th:text="|${sales.car.carprice}円|" style="text-align:center"></sapn></td>
+			</tr>
+			<tr>
+				<td>日数：</td>
+				<td><sapn th:text="${custom.getDaysDifferencePlusOne(rstart, rend)}" style="text-align:center"></sapn></td>
+			</tr>
+			<tr>
+				<td>売上合計：</td>
+				<td><sapn th:text="${sales.amount}" style="text-align:center"></sapn></td>
+			</tr>
+			<tr>
+				<td>無効フラグ：</td>
+				<td><sapn th:text="${sales.enableflag}" style="text-align:center"></sapn></td>
+			</tr>
+		<h3>変更完了しました</h3>
+	</table>
+</body>
+</html>

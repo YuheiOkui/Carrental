@@ -21,7 +21,7 @@
 	<form th:action="@{/login}" method="post">
 		<table >
 			<tr>
-				<td><label for="fullnameId">フルネーム:</label></td>
+				<td><label for="fullnameId">フルネームID:</label></td>
 				<td> <input type="text" id="fullnameId" name="username" required></td>
 			</tr>
 			<tr>
@@ -34,8 +34,10 @@
 			</tr>
 		</table>
 	</form>
-	<a th:href="@{/signup}"><b>ユーザ新規登録</b></a>
-		</section>
+	<div class="new">
+		<button ><a th:href="@{/signup}"><b>ユーザ新規登録</b></a></button>
+	</div>
+	</section>
 		<footer>team groupC</footer>
 	</main>
 </body>

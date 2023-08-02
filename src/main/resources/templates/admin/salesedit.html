@@ -8,8 +8,15 @@
 	<h3>売上管理編集</h3>
 	
 	<button><a th:href="@{'/admin/saleslist'}">売上管理一覧に戻る</a></button>
-	<form th:action="@{/admin/saleseditconf}" method="post" th:object="${sales}" th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate}">
+	<form th:action="@{/admin/saleseditconf}" method="post" th:object="${sales}" th:with="rtime=${sales.reservetime},rstart=${sales.startdate},rend=${sales.enddate},stime=${sales.salesdate}">
 	  <table>
+		<tr>
+			<td>売上ID：</td>
+			<td>
+					<input type="text" name="salesid" th:value="${sales.salesid}" size="50" style="text-align:center" th:readonly="true"  required />
+					<span th:errors="*{salesid}" style="color:red"></span>
+			</td>
+		</tr>
 		<tr>
 			<td>予約日時：</td>
 			<td>
@@ -19,9 +26,17 @@
 			</td>
 		</tr>
 		<tr>
+			<td>売上日時：</td>
+			<td>
+					<input type="hidden" name="salesdate" th:value="${sales.salesdate}">
+ 					<input type="text" name="rtime" th:value="${#temporals.format(rtime, 'yyyy年MM月dd日HH時')}" size="50" style="text-align:center" th:readonly="true" required />
+					<span th:errors="*{salesdate}" style="color:red"></span>
+			</td>
+		</tr>
+		<tr>
 			<td>ユーザーID：</td>
 			<td>
-					<input type="text" name="fullnameid" th:value="${sales.fullnameid}" size="50" style="text-align:center"  required />
+					<input type="text" name="fullnameid" th:value="${sales.fullnameid}" size="50" style="text-align:center" th:readonly="true"  required />
 					<span th:errors="*{fullnameid}" style="color:red"></span>
 			</td>
 		</tr>
@@ -35,7 +50,7 @@
 		<tr>
 			<td>車両ID：</td>
 			<td>
-					<input type="text" name="carid" th:value="${sales.carid}" size="50" style="text-align:center"  required />
+					<input type="text" name="carid" th:value="${sales.carid}" size="50" style="text-align:center" th:readonly="true"  required />
 					<span th:errors="*{carid}" style="color:red"></span>
 			</td>
 		</tr>
@@ -55,14 +70,23 @@
 		<tr>
 			<td>日数：</td>
 			<td>
+					<input type="hidden" name="startdate" th:value="${sales.startdate}">
+					<input type="hidden" name="enddate" th:value="${sales.enddate}">
 					<input type="text" name="days" th:value="${custom.getDaysDifferencePlusOne(rstart, rend)}" size="50" style="text-align:center" th:readonly="true" required />
 			</td>
 		</tr>
 		<tr>
 			<td>売上合計：</td>
 			<td>
-					<input type="text" name="amount" th:value="|${sales.amount}円|" size="50" style="text-align:center"  required />
+					<input type="text" name="amount" th:value="${sales.amount}" size="50" style="text-align:center"   required />
 					<span th:errors="*{amount}" style="color:red"></span>
+			</td>
+		</tr> 
+		<tr>
+			<td>無効フラグ：</td>
+			<td>
+					<input type="text" name="enableflag" th:value="${sales.enableflag}" size="50" style="text-align:center"   required />
+					<span th:errors="*{enableflag}" style="color:red"></span>
 			</td>
 		</tr> 
 	  </table>
