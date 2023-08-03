@@ -61,6 +61,7 @@ public class ReserveController {
 				reserveSearchForm.getEnddate().isEqual(list.getEnddate()) || 
 				(list.getStartdate().isAfter(reserveSearchForm.getStartdate()) && list.getStartdate().isBefore(reserveSearchForm.getEnddate())) ||
 				(list.getEnddate().isAfter(reserveSearchForm.getStartdate()) && list.getEnddate().isBefore(reserveSearchForm.getEnddate()))) {
+				model.addAttribute("user", carUserService.findById(((CarUserDetail)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser().getFullnameId()));
 				return "reserve/reservefail";
 			}
 		} 
